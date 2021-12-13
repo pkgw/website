@@ -29,4 +29,4 @@ template = "howto.html"
 
 EOF
 
-GDK_SCALE=1 exec code --new-window "$path"
+exec hidpi-chromium-launcher.sh code --new-window "$path"
