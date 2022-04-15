@@ -40,7 +40,7 @@ we could before.
 
 And, of course, we can: there’s a reason that things like
 [Jupyter notebooks](https://jupyter.org/) have become popular,
-[and I’ve explored using them pedagogically myself](/2014/03/elementary-gaussian-processes-in-python).
+[and I’ve explored using them pedagogically myself](@/2014/elementary-gaussian-processes-in-python.md).
 But when it comes to “high-end” scientific communication — journal articles —
 our technologies are still oriented around the print paradigm.
 
