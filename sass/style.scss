@@ -5,9 +5,9 @@ $dark-color: #290066;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
 }
 
 // Breakpoints for responsive CSS media queries. For reference, Boostrap uses:
@@ -86,7 +86,7 @@ h1 {
   // Keep this smaller than `.post-title`
   font-size: 125%;
 
-  margin: 1em 0 0.3em 0;
+  margin: 2.5em 0 0.5em 0;
 }
 
 h2 {
@@ -95,13 +95,21 @@ h2 {
   font-size: 110%;
 }
 
-h3, h4, h5, h6 {
+h3,
+h4,
+h5,
+h6 {
   // Todo: use techniques other than font-sizing to distinguish h4 and below
   // from h3.
   font-size: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1;
 }
 
@@ -365,11 +373,25 @@ h6:hover a.zola-anchor {
   }
 }
 
-#pwpubs_date { width: 10ex; }
-#pwpubs_ref { width: 2ex; }
-#pwpubs_links { width: 10ex; }
-.pwpubs_title { font-size: 110%; }
-.pwpubs_auth { font-style: italic; }
+#pwpubs_date {
+  width: 10ex;
+}
+
+#pwpubs_ref {
+  width: 2ex;
+}
+
+#pwpubs_links {
+  width: 10ex;
+}
+
+.pwpubs_title {
+  font-size: 110%;
+}
+
+.pwpubs_auth {
+  font-style: italic;
+}
 
 // CV
 
@@ -431,7 +453,7 @@ figure.float-image {
   max-width: 100%;
   margin: 0 auto;
 
-  > div {
+  >div {
     position: relative;
     padding-bottom: 75%;
     height: 0;
