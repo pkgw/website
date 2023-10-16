@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block extra_head %}
-<link rel="alternate" type="application/rss+xml" title="PKGW: Feed" href="{{ get_url(path="rss.xml") | safe }}" />
+<link rel="alternate" type="application/rss+xml" title="PKGW: Feed" href='{{ get_url(path="rss.xml") | safe }}' />
 
-<script type="text/javascript" src="{{ get_url(path="emulate_wp_redirect.js") | safe }}" defer></script>
+<script type="text/javascript" src='{{ get_url(path="emulate_wp_redirect.js") | safe }}' defer></script>
 {% endblock extra_head %}
 
 {% block content %}
@@ -12,11 +12,11 @@
   the <a href="https://cfa.harvard.edu/">Center for Astrophysics</a> and
   formerly the <a href="https://aas.org/">American Astronomical Society</a>. I help
   other astronomers do research better and faster. You can find out more on
-  my <a href="{{macros::page_url(path="about-me/index.md")}}">About Me</a> page,
+  my <a href='{{macros::page_url(path="about-me/index.md")}}'>About Me</a> page,
   and you can find me <a href="https://mastodon.world/@pkgw">on Mastodon as
     @pkgw@mastodon.world</a> or over email at <a href="mailto:peter@newton.cx">peter@newton.cx</a>.</p>
 
-{% set latest_section = get_section(path="2020/_index.md") %}
+{% set latest_section = get_section(path="2023/_index.md") %}
 {% for post in latest_section.pages | slice(end=5) %}
 {% if loop.first %}
 
@@ -36,13 +36,13 @@
 <hr>
 <p class="index-small-divider">Recently:</p>
 <table>
-{% else %}
-<tr>
-  <td class="recent-post-date">{{ post.date | date(format="%Y %B %e") }}</td>
-  <td class="recent-post-title"><a href="{{ post.permalink | safe }}">{{ post.title }}</a></td>
-</tr>
-{% endif %}
-{% endfor %}
+  {% else %}
+  <tr>
+    <td class="recent-post-date">{{ post.date | date(format="%Y %B %e") }}</td>
+    <td class="recent-post-title"><a href="{{ post.permalink | safe }}">{{ post.title }}</a></td>
+  </tr>
+  {% endif %}
+  {% endfor %}
 </table>
 
 {% endblock content %}
