@@ -158,11 +158,10 @@ header {
 }
 
 #banner {
-  // Banner text "Peter K. G. Williams" overlaying the header image. It's
-  // inside the `maxwidth` div to stay roughly centered when the viewport is
-  // wide. It's a <p> tag (Markdown produces <h1>-<h6> tags so I want to save
-  // keeps it about vertically centered in the <header> imagetheir
-  // styling to be nice and generic).
+  // Banner text "Peter K. G. Williams" overlaying the header image. It's inside
+  // the `maxwidth` div to stay roughly centered when the viewport is wide. It's
+  // a <p> tag (Markdown produces <h1>-<h6> tags so I want to save their styling
+  // to be nice and generic).
   margin: 0;
   min-height: 3rem;
   padding: 0.5rem 0 0 0;
