@@ -11,35 +11,26 @@ skip_rss = true
 Photo by Rick Fienberg
 {% end %}
 
-I’m the Innovation Scientist of the
-[Center for Astrophysics](https://www.cfa.harvard.edu/) and the
-[American Astronomical Society](https://aas.org/). I’m also Director of the
-AAS [WorldWide Telescope](http://worldwidetelescope.org/) project. My
-astrophysical research focuses on the magnetism of other stars and planets,
-large surveys, and the techniques of radio interferometry.
-
-As Innovation Scientist, my job is to make other astronomers’ jobs easier. The
-new technologies of the 21st century present an enormous opportunity to
-improve all aspects of the research enterprise — but working scientists don’t
-have the time to chase every new fad that comes out of Silicon Valley. I try
-to promote and build tools that help astronomers do their research faster and
-better.
+I’m the Innovation Scientist of the [Center for
+Astrophysics](https://www.cfa.harvard.edu/) and formerly the [American
+Astronomical Society](https://aas.org/). My astrophysical research focuses on
+the magnetism of other stars and planets, large surveys, and the techniques of
+radio interferometry.
 
 I’ve always been interested in computers and scientific communication, and I’m
-particular keen to explore the intersection between the two. The
-[AAS WorldWide Telescope](http://worldwidetelescope.org/) is a first-class example
-of how the graphics technologies developed for the Web can make it easy
-for researchers to develop beautiful, bespoke visualizations. I
-{{ulink(path="2013/09/slides-for-scientific-talks-in-html/", text="write my talks in HTML")}} which 
-allows me to include
-{{ulink(path="2017/07/variable-and-polarized-radio-emission-from-the-t6-brown-dwarf-wisep-j112254-73255021-5/",
-text="fancy interactive animations")}}. I have spent more time in the guts of
-[TeX](https://en.wikipedia.org/wiki/TeX) than any person really ought to,
-including launching the
-[Tectonic Project](https://tectonic-typesetting.github.io/), which extends and
-reworks TeX in some key ways with the goal of providing the 21st-century
-typesetting system for technical documents — both print and electronic — that
-scientists, engineers, and in fact _everyone_ deserves.
+particular keen to explore the intersection between the two. I’m a major
+contributor to [WorldWide Telescope](https://worldwidetelescope.org/), a
+first-class example of how the graphics technologies developed for the Web can
+make it easy for researchers to develop beautiful, bespoke visualizations. I
+{{ulink(path="2013/09/slides-for-scientific-talks-in-html/",text="write my talks in HTML")}}
+which allows me to include
+{{ulink(path="2017/07/variable-and-polarized-radio-emission-from-the-t6-brown-dwarf-wisep-j112254-73255021-5/",text="fancy interactive animations")}}.
+I have spent more time in the guts of [TeX](https://en.wikipedia.org/wiki/TeX)
+than any person really ought to, including launching the [Tectonic
+Project](https://tectonic-typesetting.github.io/), which extends and reworks TeX
+in some key ways with the goal of providing the 21st-century typesetting system
+for technical documents — both print and electronic — that scientists,
+engineers, and in fact _everyone_ deserves.
 
 My astrophysics research focuses on “extrasolar magnetospheres” — the magnetic
 fields of cool bodies beyond the Solar System. My work has shown that very
@@ -75,7 +66,7 @@ I also do things that aren’t science! But this isn’t the website for talking
 about that.
 
 
-### Contact
+# Contact
 
 My CfA office is **M-303** at [160 Concord](https://goo.gl/maps/4x5r67fTQDM2).
 My work email address is
