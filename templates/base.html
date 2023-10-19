@@ -1,72 +1,72 @@
 {%- import "macros.html" as macros -%}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-26313513-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-26313513-1');
-    </script>
-    <link rel="stylesheet" href="{{ get_url(path="sanitize.css") | safe }}">
-    <link rel="stylesheet" href="{{ get_url(path="style.css") | safe }}">
-    <link href="https://fonts.googleapis.com/css?family=Bitter|Noto+Serif|Noto+Sans" rel="stylesheet">
-    <!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    {% block extra_head %}
-    {% endblock extra_head %}
-  </head>
 
-  <body>
-    <header>
-      <div class="maxwidth">
-        <p id="banner"><a href="{{ get_url(path="", trailing_slash=true) | safe }}">Peter K. G. Williams</a></p>
-      </div>
-    </header>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-26313513-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-26313513-1');
+  </script>
+  <link rel="stylesheet" href='{{ get_url(path="sanitize.css") | safe }}'>
+  <link rel="stylesheet" href='{{ get_url(path="style.css") | safe }}'>
+  <link href="https://fonts.googleapis.com/css?family=Bitter|Noto+Serif|Noto+Sans" rel="stylesheet">
+  <!--[if IE]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  {% block extra_head %}
+  {% endblock extra_head %}
+</head>
 
-    <nav id="topnav">
-      <div class="maxwidth">
-        <ul>
-          <li><a href="{{ macros::page_url(path="about-me/index.md") }}">About Me / Contact</a></li>
-          <li><a href="{{ macros::page_url(path="pubs.md") }}">Publications</a></li>
-          <li><a href="{{ macros::page_url(path="cv.md") }}">CV</a></li>
-          <li><a href="{{ macros::page_url(path="dissertation.md") }}">Dissertation</a></li>
-          <li><a href="{{ macros::page_url(path="all-posts.md") }}">All Posts</a></li>
-          <li><a href="{{ macros::section_url(name="howto") }}">How-To Guides</a></li>
-        </ul>
-      </div>
-    </nav>
-
+<body>
+  <header>
     <div class="maxwidth">
-      <div class="content">
-        {% block content %}
-        {% endblock content %}
-      </div>
+      <p id="banner"><a href="{{ get_url(path="", trailing_slash=true) | safe }}">Peter K. G. Williams</a></p>
     </div>
+  </header>
 
-    <footer>
-      <div class="maxwidth">
-        <p>Copyright {{ now() | date(format="%Y") }} Peter K. G. Williams.
-          <a rel="license"
-          href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative
-          Commons License" style="border-width:0"
-          src="https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png" /></a>
-          This work is licensed under a <a rel="license"
-          href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative
+  <nav id="topnav">
+    <div class="maxwidth">
+      <ul>
+        <li><a href='{{ macros::page_url(path="about-me/index.md") }}'>About Me / Contact</a></li>
+        <li><a href='{{ macros::page_url(path="pubs.md") }}'>Publications</a></li>
+        <li><a href='{{ macros::page_url(path="cv.md") }}'>CV</a></li>
+        <li><a href='{{ macros::page_url(path="dissertation.md") }}'>Dissertation</a></li>
+        <li><a href='{{ macros::page_url(path="all-posts.md") }}'>All Posts</a></li>
+        <li><a href='{{ macros::section_url(name="howto") }}'>How-To Guides</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="maxwidth">
+    <div class="content">
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </div>
+
+  <footer>
+    <div class="maxwidth">
+      <p>Copyright {{ now() | date(format="%Y") }} Peter K. G. Williams.
+        <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative
+          Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png" /></a>
+        This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative
           Commons Attribution-NonCommercial-ShareAlike 4.0 International
           License</a>. Header image courtesy of NRAO/AUI and Rick White
-          (STScI), Bob Becker (IGPP/LLNL &amp; UC-Davis), and David Helfand
-          (Columbia).
-          <a href="{{ get_url(path="rss.xml") | safe }}">RSS/Atom feed
+        (STScI), Bob Becker (IGPP/LLNL &amp; UC-Davis), and David Helfand
+        (Columbia).
+        <a href='{{ get_url(path="rss.xml") | safe }}'>RSS/Atom feed
           available</a>. Site generated
-          with <a href="https://www.getzola.org/">Zola</a>.
-          <a href="https://github.com/pkgw/website/">Source code.</a></p>
-      </div>
-    </footer>
-  </body>
+        with <a href="https://www.getzola.org/">Zola</a>.
+        <a href="https://github.com/pkgw/website/">Source code.</a>
+      </p>
+    </div>
+  </footer>
+</body>
+
 </html>
