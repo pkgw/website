@@ -1,5 +1,5 @@
 +++
-date = @DATE@
+date = 2023-10-20T08:27:13-04:00
 title = "Sneak Peek: DASCH Website Refresh"
 +++
 
@@ -17,7 +17,7 @@ petabyte all told), scanning hardware, and software pipelines — in the past
 couple of months I’ve also worked on refreshing the project website. It’s not
 fully launched yet, but there's enough for a sneak peek here:
 
-> https://dasch.cfa.harvard.edu/
+<https://dasch.cfa.harvard.edu/>
 
 At the moment, this site is largely a refactor of the pre-existing website,
 which was, frankly, fairly confusing. In the coming weeks and months I hope to
