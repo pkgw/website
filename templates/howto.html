@@ -12,12 +12,17 @@
 {{ page.content | safe }}
 
 <div class="prev-next-pages">
-  <p><em>See <a href="{{ macros::section_url(name="howto") }}">a list of all how-to guides</a>.</em></p>
+  <p><em>Questions or comments? For better or worse this website isn’t interactive, so
+      <a href="mailto:pwilliams@cfa.harvard.edu">send me an email</a> or, uh, <a
+        href="https://mastodon.world/@pkgw">Toot
+        me</a>.</em></p>
+
+  <p><em>See <a href='{{ macros::section_url(name="howto") }}'>a list of all how-to guides</a>.</em></p>
 
   <p><em>On GitHub you
-        can <a href="{{config.extra.github_base}}/edit/master/content/{{page.relative_path}}">propose
+      can <a href="{{config.extra.github_base}}/edit/master/content/{{page.relative_path}}">propose
         a revision to this guide</a>
-        or <a href="{{config.extra.github_base}}/commits/master/content/{{page.relative_path}}">view
+      or <a href="{{config.extra.github_base}}/commits/master/content/{{page.relative_path}}">view
         its revision history</a>.</em></p>
 </div>
 

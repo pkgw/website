@@ -12,12 +12,19 @@
 {{ page.content | safe }}
 
 <div class="prev-next-pages">
+  <p><em>Questions or comments? For better or worse this website isn’t interactive, so
+      <a href="mailto:pwilliams@cfa.harvard.edu">send me an email</a> or, uh, <a
+        href="https://mastodon.world/@pkgw">Toot
+        me</a>.</em></p>
+
   {%- if page.lower -%}
   <p><em>Later:</em> <a href="{{ page.lower.permalink | safe }}">{{ page.lower.title }}</a></p>
   {%- endif -%}
+
   {%- if page.higher -%}
   <p><em>Earlier:</em> <a href="{{ page.higher.permalink | safe }}">{{ page.higher.title }}</a></p>
   {%- endif -%}
+
   {% set allposts = get_page(path="all-posts.md") %}
   <p><em>See <a href="{{ allposts.permalink | safe }}">a list of all posts</a>.</em></p>
 
