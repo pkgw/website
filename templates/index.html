@@ -8,13 +8,30 @@
 
 {% block content %}
 
-<p class="lede">I’m the Innovation Scientist of
-  the <a href="https://cfa.harvard.edu/">Center for Astrophysics</a> and
-  formerly the <a href="https://aas.org/">American Astronomical Society</a>. I help
-  other astronomers do research better and faster. You can find out more on
-  my <a href='{{macros::page_url(path="about-me/index.md")}}'>About Me</a> page,
-  and you can find me <a href="https://mastodon.world/@pkgw">on Mastodon as
-    @pkgw@mastodon.world</a> or over email at <a href="mailto:peter@newton.cx">peter@newton.cx</a>.</p>
+<p class="lede">I’m the Innovation Scientist of the
+  <a href="https://cfa.harvard.edu/">Center for Astrophysics</a> and formerly
+  the <a href="https://aas.org/">American Astronomical Society</a>. I help other
+  astronomers do research better and faster. You can find out more on my
+  <a href='{{macros::page_url(path="about-me/index.md")}}'>About Me</a> page,
+  and you can find me
+  <a href="https://mastodon.world/@pkgw">on Mastodon as @pkgw@mastodon.world</a>
+  or over email at <a href="mailto:peter@newton.cx">peter@newton.cx</a>.
+</p>
+
+<p>If you’d like to hear about the things I’m getting up to, try subscribing to
+  my lightweight newsletter — I use it to send out links to the pieces that I
+  write here on this website:</p>
+
+<form action="https://buttondown.email/api/emails/embed-subscribe/pkgw" method="post" target="popupwindow"
+  onsubmit="window.open('https://buttondown.email/pkgw', 'popupwindow')" class="subscribe">
+  <label for="bd-email">Enter your email:</label>
+  <input type="email" name="email" id="bd-email" />
+
+  <input type="submit" value="Subscribe" />
+</form>
+
+<p>… or, cut out the middleman and add <a href="rss.xml">my RSS/Atom feed</a> to
+  your preferred newsreader.</p>
 
 {% set latest_section = get_section(path="2023/_index.md") %}
 {% for post in latest_section.pages | slice(end=5) %}

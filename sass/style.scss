@@ -339,6 +339,34 @@ h6:hover a.zola-anchor {
   padding-bottom: 1rem;
 }
 
+.subscribe {
+  font-family: sans;
+  font-size: 85%;
+  margin: 0 25% 1em 25%;
+  color: #444;
+
+  input {
+    display: block;
+    margin: 0.4em 0;
+    padding: 8px;
+    width: 100%;
+  }
+
+  input[type="submit"] {
+    all: unset;
+    margin-top: 0.2em;
+    background-color: #9d82c5;
+    color: #FFF;
+    padding: 3px 6px;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: #7a58ad;
+      cursor: pointer;
+    }
+  }
+}
+
 // Publications list
 
 #pwpubs {
