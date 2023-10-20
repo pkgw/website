@@ -17,6 +17,13 @@
         href="https://mastodon.world/@pkgw">Toot
         me</a>.</em></p>
 
+  <p><em>Want more? Try subscribing to my
+      <a target="_blank" href="https://buttondown.email/pkgw">lightweight
+        newsletter</a> or
+      <a href='{{ get_url(path="", trailing_slash=true) | safe }}rss.xml'>my
+        RSS/Atom feed</a>. No thirsty influencering — just links to what I’m
+      writing.</em></p>
+
   {%- if page.lower -%}
   <p><em>Later:</em> <a href="{{ page.lower.permalink | safe }}">{{ page.lower.title }}</a></p>
   {%- endif -%}
