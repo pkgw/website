@@ -12,3 +12,8 @@ mkdir public/feed
 cp public/rss.xml public/feed/index.html
 
 rsync -avP --exclude '*~' public/ newton.cx:public_html/
+
+set +x
+echo
+echo "Is it time to put out a new newsletter? https://buttondown.email/emails/new"
+echo
