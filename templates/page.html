@@ -12,13 +12,13 @@
 {{ page.content | safe }}
 
 <div class="prev-next-pages">
-{%- if page.later -%}
-  <p><em>Later:</em> <a href="{{ page.later.permalink | safe }}">{{ page.later.title }}</a></p>
-{%- endif -%}
-{%- if page.earlier -%}
-  <p><em>Earlier:</em> <a href="{{ page.earlier.permalink | safe }}">{{ page.earlier.title }}</a></p>
-{%- endif -%}
-{% set allposts = get_page(path="all-posts.md") %}
+  {%- if page.lower -%}
+  <p><em>Later:</em> <a href="{{ page.lower.permalink | safe }}">{{ page.lower.title }}</a></p>
+  {%- endif -%}
+  {%- if page.higher -%}
+  <p><em>Earlier:</em> <a href="{{ page.higher.permalink | safe }}">{{ page.higher.title }}</a></p>
+  {%- endif -%}
+  {% set allposts = get_page(path="all-posts.md") %}
   <p><em>See <a href="{{ allposts.permalink | safe }}">a list of all posts</a>.</em></p>
 
   <p><em><a href="{{config.extra.github_base}}/commits/master/content/{{page.relative_path}}">View
