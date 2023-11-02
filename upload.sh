@@ -17,3 +17,5 @@ set +x
 echo
 echo "Is it time to put out a new newsletter? https://buttondown.email/emails/new"
 echo
+echo "Toot about it? https://mastodon.world/home"
+echo
