@@ -37,7 +37,7 @@ from Watertown to Harvard, with ~10-minute walks on both ends. I budget about 45
 minutes to get in, not counting how I might delay my departure to sync up with
 the bus schedule. Overall, it’s OK, but it takes longer than I’d like and
 unpredictable delays from traffic and MBTA snafus can be unpleasant. For
-instance, I generally try to head from from work either before 4:45, or after
+instance, I generally try to head home from work either before 4:45, or after
 6:30, because rush hour out of Cambridge is just that gnarly.
 
 For reference, Google Maps tells me that a door-to-door drive in light traffic
