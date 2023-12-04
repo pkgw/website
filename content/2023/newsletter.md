@@ -6,7 +6,7 @@ title = "Launching a Newsletter, A Little Reluctantly"
 I’ve really enjoyed getting back into trying to write regularly, so I’m going to
 take the next step and, yes, launch a newsletter. By this I mean something very
 narrow: now you can [sign up][bd] to get brief emailed notices when I post
-something new on this website. I‘ve actually been quite tempted to just say that
+something new on this website. I’ve actually been quite tempted to just say that
 I’m adding email notifications to my blog, but in today’s discourse everyone
 talks about newslettering, so I’ll bow to convention.
 
