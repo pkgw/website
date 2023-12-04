@@ -1,5 +1,5 @@
 +++
-date = 2023-12-01T14:40:41-05:00
+date = 2023-12-04T14:40:41-05:00
 title = "Launching a Newsletter, A Little Reluctantly"
 +++
 
