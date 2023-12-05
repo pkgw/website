@@ -128,6 +128,13 @@ combination, and one that feels depressingly rare on today’s internet. (And it
 seems likely to become yet rarer — sadly, Bordwell’s health appears to be
 failing.)
 
+*(Update: at virtually the same time as I posted this, the Bordwell blog was
+updated with [a re-post of a classic discussion of Die Hard][bwdh] that
+perfectly demonstrates the polish I mentioned above. Unfortunately it also
+confirms that David’s health situation is poor.)*
+
+[bwdh]: http://www.davidbordwell.net/blog/2023/12/04/die-hard-revived-an-entry-revisited/
+
 All of this is to try to convey why I feel a bit icky about becoming a
 Newsletter Guy. But I have to admit that I would actually like for people to
 read the things that I write! And, *especially* given the inexhaustible torrent
