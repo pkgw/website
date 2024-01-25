@@ -98,7 +98,7 @@ replied in just a few days, filling in the last missing piece of the puzzle:
 > published also. […]
 
 Konstantin’s email included a link to
-[Charles Prosser’s AAS obituary](http://aas.org/obituaries/charles-franklin-prosser-jr-1963-1998),
+[Charles Prosser’s AAS obituary](https://baas.aas.org/pub/charles-franklin-prosser-jr-1963-1998/),
 written by his frequent collaborator John Stauffer. It makes for compelling
 reading in its way:
 
