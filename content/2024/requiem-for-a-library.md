@@ -5,7 +5,7 @@ title = "Requiem for a Library"
 
 Earlier this week, the [CfA] community was notified that the [John G. Wolbach
 Library][wolbach] would be shut down for budgetary reasons. The spin is that
-it’s “integrating into the broader Harvard Library,”, but the staff are being
+it’s “integrating into the broader Harvard Library,” but the staff are being
 let go and the physical space will be repurposed, so I think it’s fair to call
 it a closure. I wanted to try to write a few words about what I think is going
 to be lost.
@@ -110,16 +110,16 @@ these days, we shouldn’t be taking for granted some of the library basics such
 as “providing access to knowledge without reporting your interests to the
 government” or “fighting against people that want to burn books”.
 
-Unfortunately, it’s quite clear that the Wolbach decision is final. One the one
+Unfortunately, it’s quite clear that the Wolbach decision is final. On the one
 hand, I understand that if you’re going to lay people off, you can’t shop around
 for feedback, and you can’t be wishy-washy once the decision is made. On the
 other hand, I and many of my colleagues feel immensely dissatisfied with the
 process that got us here. To paraphrase an astute observation from a coworker
 (not sure if they would want to be named): yes, this is a decision affecting
-jobs that basically needs to be handed down from on high. On the other hand,
-this is also a *big* decision that speaks to the foundational values of the CfA
-community. It demands discussion. I don’t know how you reconcile those two
-things, but I feel like there has to have been a better way.
+jobs that basically needs to be handed down from on high. But this is also a
+*big* decision that speaks to the foundational values of the CfA community. It
+demands discussion. I don’t know how you reconcile those two things, but I feel
+like there has to have been a better way.
 
 In all this broad talk of institutions and community, I don’t want to lose sight
 of the fact that a number of my coworkers are losing their jobs. That sucks.
