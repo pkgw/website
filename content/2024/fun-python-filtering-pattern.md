@@ -63,7 +63,7 @@ lc.keep_only.between_dates(d1, d2).count.detections()
 ```
 
 This pattern is really easy to implement, too. The approach that I’ve taken is
-as follows. An action like `drop` is a method that returns a lightweight
+as follows. An action like `drop` is expressed as a property that’s a lightweight
 `Selector` object:
 
 ```python
@@ -79,8 +79,9 @@ class Lightcurve(Table):
         return self[~selection]
 ```
 
-The selector worries about different subsetting operations, but hands things
-back to the original object to actually take action:
+(Here I’ve implemented the property as a getter method, but it could be set up
+in `__init__`.) The selector worries about different subsetting operations,
+but hands things back to the original object to actually take action:
 
 ```python
 class Selector:
