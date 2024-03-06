@@ -7,7 +7,7 @@ template = "howto.html"
 
 Sometimes you want to record a video of your desktop screen on Linux, perhaps to
 create a prerecorded presentation. With modern screen resolutions, it can be
-super compute-intensive to record such a video, to the extent that it's worth
+super compute-intensive to encode such a video, to the extent that it's worth
 taking special steps to make sure the recording process works well.
 
 On my machine (2020 Dell XPS 15 9500), the most important thing is to use
@@ -15,13 +15,21 @@ hardware-accelerated video encoding using the discrete NVidia graphics card.
 This (currently?) requires use of the proprietary NVidia kernel module and
 X.org. After setting everything up the workflow is:
 
-1. Connect up fancy microphone, if possible
-1. Reboot machine
-1. Select one of the kernel variations with the NVidia kernel module
+1. Disconnect from (or simply don't use?) any external display. The discrete GPU
+   is only physically wired up to the laptop panel. (Or maybe it doesn't even
+   matter? We're using the GPU for video encoding, not its graphics output.)
+1. Plug in AC power. This stuff is power-hungry!
+1. Connect up fancy microphone, if possible.
+1. Consider using external keyboard and mouse. Typing on the built-in keyboard
+   can be noisy. The trackpad is bad for pointing/clicking accuracy.
+1. Reboot machine.
+1. Select one of the kernel variations with the NVidia kernel module.
 1. Before actually booting, check the kernel command line and make sure that
    magic arguments are there: `rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1`
-1. Once booted, make sure to use X.Org rather than Wayland for the session
-1. Open up [OBS] and make a test recording
+1. Once booted, make sure to use X.Org rather than Wayland for the session.
+   (This may be the only possibility if the NVidia drivers are properly
+   activated; check `$XDG_SESSION_TYPE`.)
+1. Open up [OBS] and make a test recording.
 
 [OBS]: https://obsproject.com/
 
@@ -133,3 +141,81 @@ Nouveau mode. It looks like this was because
 `/proc/cmdline`, propagating the Nouveau settings if I install a kernel in the
 Nouveau mode. I worked around this by putting the desired settings into
 `/etc/kernel/cmdline`, which that script prefers if it exists.
+
+Unlike some other systems, here we should not, and indeed cannot, prevent the
+`i915` drivers from being loaded — the GPU needs the Intel hardware to work at
+all.
+
+
+# Other setup
+
+1. Set up `/etc/X11/xorg.conf.d/nvidia.conf` as a clone of
+   `/usr/share/X11/xorg.conf.d/nvidia.conf` with `Option "PrimaryGPU" "yes"`
+   added. Seemingly needed to get GLX using NVidia; maybe not needed for OBS?
+1. OBS should be configured to use hardware encoding! Settings → Output →
+   Recording → Video Encoder should be "Hardware (NVENC, HEVC)".
+1. For more OBS settings, set “Output Mode” to “Advanced” and then the Type of
+   the recording pane to Standard. This gave me the knobs I needed to resolve
+   the following.
+1. As of 2024 March, I needed to set “Max B-frames” to 0 for NVENC HEVC output.
+   Who knows.
+
+RPMs needed (I think?):
+
+```
+libva-nvidia-driver
+nvidia-gpu-firmware
+nvidia-modprobe
+nvidia-persistenced
+nvidia-settings
+xorg-x11-drv-nvidia
+xorg-x11-drv-nvidia-cuda
+xorg-x11-drv-nvidia-cuda-libs
+xorg-x11-drv-nvidia-kmodsrc
+xorg-x11-drv-nvidia-libs
+xorg-x11-drv-nvidia-power
+```
+
+
+# Diagnostic Steps
+
+Run `lsmod |grep nvidia`. Various modules should be present. Run `lsmod |grep
+nouveau`. Nothing should be present.
+
+Run `glxinfo`. The OpenGL renderer should be NVidia. This may not actually be
+needed for OBS recording?
+
+Run `nvidia-smi`. It should be happy and if OBS is running, it should be a
+client.
+
+Run `vdpauinfo`. It should report various NVidia things.
+
+Run `vainfo`. It should be happy and use NVidia.
+
+Run `ffmpeg -h encoder=h264_nvenc`. It should report various NVidia things.
+
+Try a test FFmpeg with a sample file [like this one][sample]:
+
+```
+ffmpeg \
+  -i preview_657cdb983affb5769f425e10.mp4 \
+  -c:v hevc_nvenc -cq 28 -b:v 0k -b_ref_mode 0 \
+  output.mp4
+```
+
+[sample]: https://cx.wwtassets.org/previews/preview_657cdb983affb5769f425e10.mp4
+
+One time, a lot of experimenting with this revealed to me that the `h264_nvenc`
+mode, which used to work for me, seems to no longer work; I could get HEVC
+going, though.
+
+Run `obs` from the command line and examine output. One time, this revealed to
+me that I needed to install the `libva-nvidia-driver` RPM in order to provide a
+needed VA shared library.
+
+
+# See Also
+
+- [How to get a standardized browser window](@/howto/get-a-standard-browser.md)
+  which has notes about vidcap setup for one of my common use cases: capturing a
+  web browser window.
