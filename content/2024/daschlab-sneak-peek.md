@@ -31,3 +31,11 @@ intentionally low-level; there no installation instructions, tutorials, etc. Tha
 kind of stuff will end up on [the main DASCH website][DASCH].
 
 [apidocs]: https://daschlab.readthedocs.io/
+
+In the course of making this video I went through my quasi-annual revisitation
+of what it takes to do efficient desktop video capture on Linux; a lot of that
+stuff is extremely hardware- and distribution- specific, but if you want to see
+what a glutton for punishment I am, the gory details are documented on my
+[Capture Video Efficiently on
+Linux](@/howto/capture-video-efficiently-on-linux.md) and [Get a Standardized
+Browser Window](@/howto/get-a-standard-browser.md) HOWTOs.
