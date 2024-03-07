@@ -15,20 +15,15 @@ hardware-accelerated video encoding using the discrete NVidia graphics card.
 This (currently?) requires use of the proprietary NVidia kernel module and
 X.org. After setting everything up the workflow is:
 
-1. Disconnect from (or simply don't use?) any external display. The discrete GPU
-   is only physically wired up to the laptop panel. (Or maybe it doesn't even
-   matter? We're using the GPU for video encoding, not its graphics output.)
-1. Plug in AC power. This stuff is power-hungry!
-1. Connect up fancy microphone, if possible.
-1. Consider using external keyboard and mouse. Typing on the built-in keyboard
-   can be noisy. The trackpad is bad for pointing/clicking accuracy.
+1. Consider hardware setup: fancy microphone; external keyboard and mouse;
+   physical isolation between the mike and other items.
 1. Reboot machine.
 1. Select one of the kernel variations with the NVidia kernel module.
 1. Before actually booting, check the kernel command line and make sure that
    magic arguments are there: `rd.driver.blacklist=nouveau modprobe.blacklist=nouveau nvidia-drm.modeset=1`
 1. Once booted, make sure to use X.Org rather than Wayland for the session.
    (This may be the only possibility if the NVidia drivers are properly
-   activated; check `$XDG_SESSION_TYPE`.)
+   activated; check `$XDG_SESSION_TYPE` after logging in.)
 1. Open up [OBS] and make a test recording.
 
 [OBS]: https://obsproject.com/
@@ -37,9 +32,8 @@ X.org. After setting everything up the workflow is:
 # Dual-boot kernel magic
 
 For video capture, I need the proprietary NVidia kernel driver. For day-to-day
-usage, I prefer [Nouveau] because it has Wayland support, which I need for
-my dual-screen setup where the screens have different preferred HiDPI settings.
-So I need a way to sometimes use one, sometimes use the other.
+usage, I prefer [Nouveau] because it has Wayland support. So I need a way to
+sometimes use one, sometimes use the other.
 
 [Nouveau]: https://nouveau.freedesktop.org/
 
@@ -142,16 +136,12 @@ Nouveau mode. It looks like this was because
 Nouveau mode. I worked around this by putting the desired settings into
 `/etc/kernel/cmdline`, which that script prefers if it exists.
 
-Unlike some other systems, here we should not, and indeed cannot, prevent the
-`i915` drivers from being loaded — the GPU needs the Intel hardware to work at
-all.
-
 
 # Other setup
 
 1. Set up `/etc/X11/xorg.conf.d/nvidia.conf` as a clone of
    `/usr/share/X11/xorg.conf.d/nvidia.conf` with `Option "PrimaryGPU" "yes"`
-   added. Seemingly needed to get GLX using NVidia; maybe not needed for OBS?
+   added. **Seemingly needed to get GLX using NVidia; maybe not needed for OBS?**
 1. OBS should be configured to use hardware encoding! Settings → Output →
    Recording → Video Encoder should be "Hardware (NVENC, HEVC)".
 1. For more OBS settings, set “Output Mode” to “Advanced” and then the Type of
@@ -175,6 +165,23 @@ xorg-x11-drv-nvidia-kmodsrc
 xorg-x11-drv-nvidia-libs
 xorg-x11-drv-nvidia-power
 ```
+
+
+# Dead Ends / Non-Factors
+
+For *some* GPU use cases, it’s important to use the laptop’s display panel, and
+not an external monitor, because the GPU simply isn't physically connected to
+the external ports. But here, we’re just using the GPU for the encoding, so that
+doesn’t matter. I have successfully captured on my external monitor and
+everything is OK.
+
+Likewise, it’s probably not necessary to get GLX using the GPU here, although I
+haven’t explicitly done the experiment to confirm that.
+
+Unlike some other systems, here we should not, and indeed cannot, prevent the
+Intel `i915` drivers from being loaded — the GPU needs the Intel hardware to
+work at all. So no need to worry about that stuff.
+
 
 
 # Diagnostic Steps

@@ -92,16 +92,16 @@ the size of the resulting image.
 the final window size includes a fair amount of transparent blank space
 surrounding the actual window — I believe this is used for drop shadows and
 such. I can configure OBS to crop away this border, and this is desirable to
-avoid black borders around the video edge. **Also**, we have to capture on my
-laptop’s panel, which is HiDPI, so the screenshot pixel sizes are all doubled —
-we're aiming for 2560×1920.
+avoid black borders around the video edge. **Also**, if the window is on a HiDPI
+display, various pixel sizes are doubled — we'd be aiming for 2560×1920.
 
-Currently, on my computer the X.org window border consists of 46 px at top (in
-HiDPI pixels), 52 px left and right, and 58 px at bottom. This means that the
-target window size we're actually going for, in terms of what a screenshot will
-yield, is 2664×2024.
+Currently, on my laptop’s display, which is HiDPI, the X.org window border
+consists of 46 px at top (in HiDPI pixels), 52 px left and right, and 58 px at
+bottom. This means that the target window size we're actually going for, in
+terms of what a screenshot will yield, is 2664×2024. On an attached regular-DPI
+monitor, all of these measurements are halved.
 
-So, compared to the devtools content-area size readout, the cropped window size
+Compared to the devtools content-area size readout, the *cropped* window size
 has the same width, but is 85 non-HiDPI px taller, at the moment.
 
 
@@ -115,14 +115,15 @@ notes about the setup of that.
 1. See [the video capture howto][vidcap] for notes about proper video encoding
    settings. In theory that is all separate from the issues considered here.
 1. Set up a “window capture” device to capture the browser window.
-1. Set it up to crop as above: 46 / 52 / 58 / 52 px (in CSS ordering). There is
-   a "source screenshot" functionality that you can use to check the results.
-   (Crop one pixel smaller on each axis and open in Gimp to verify that there is
-   just 1px of border on all edges.)
+1. Set it up to crop as above: 46 / 52 / 58 / 52 px (in CSS ordering) if HiDPI;
+   half those values if not. There is a "source screenshot" functionality that
+   you can use to check the results. (Crop one pixel smaller on each axis and
+   open in Gimp to verify that there is just 1px of border on all edges.)
 1. Use the “Edit Transform” (Ctrl-E) box to check the size of the stream, post-crop.
 1. Use "Resize output (source size)" to match the output to the window.
 1. If you're going to overlay a webcap feed, how about putting it in the
-   top-right, 24 px from the edges? And giving it a size of 412×232 px?
+   top-right, 24 px from the edges? And giving it a size of 412×232 px? (These
+   measurements assuming HiDPI).
 1. Finally, use `ffprobe` to check the pixel dimensions of a test recording.
 
 [vidcap]: @/howto/capture-video-efficiently-on-linux.md
