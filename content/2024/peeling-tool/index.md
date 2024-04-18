@@ -52,7 +52,7 @@ it’s bright enough and sufficiently easy to model, you should be able to
 self-calibrate to obtain a direction-dependent (DD) calibration optimized for
 that one particular source. If that source is off in the sidelobes of your
 antennas, those calibration parameters might be very different than the DI
-calibration parameters, which are generally derived my pointing your telescope
+calibration parameters, which are generally derived by pointing your telescope
 right at a calibrator.
 
 In this scenario, the emission from your science target(s) is still best
