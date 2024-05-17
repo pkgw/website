@@ -10,27 +10,20 @@
 
 <p class="lede">I’m a researcher at the
   <a rel="noopener" target="_blank" href="https://cfa.harvard.edu/">Center for
-    Astrophysics | Harvard &amp; Smithsonian</a>. I build systems for
-  astrophysical data analysis and
-
-
-  I think about, write about, and
-  <i>create</i> the tools and infrastructures that enable 21st century science.
-
-
-
-
+    Astrophysics | Harvard &amp; Smithsonian</a>. I spend most of my time
+  designing and building astrophysical data systems. Underpinning this work is
+  my preoccupation with all of the ways that computers <i>could</i>
+  be revolutionizing science and society — but aren’t yet.
 </p>
-<p>You can find out more on my
-  <a href='{{macros::page_url(path="about-me/index.md")}}'>About Me</a> page,
-  and you can find me
+
+<p>Contact me
   <a href="https://mastodon.world/@pkgw">on Mastodon as @pkgw@mastodon.world</a>
   or over email at <a href="mailto:peter@newton.cx">peter@newton.cx</a>.
+  Find out more on my
+  <a href='{{macros::page_url(path="about-me/index.md")}}'>About Me</a> page, or
+  by subscribing to my lightweight newsletter — I use it to send out links to
+  the posts that I write here on this website:
 </p>
-
-<p>If you’d like to hear about the things I’m getting up to, try subscribing to
-  my lightweight newsletter — I use it to send out links to the pieces that I
-  write here on this website:</p>
 
 <form action="https://buttondown.email/api/emails/embed-subscribe/pkgw" method="post" target="popupwindow"
   onsubmit="window.open('https://buttondown.email/pkgw', 'popupwindow')" class="subscribe">
@@ -40,8 +33,8 @@
   <input type="submit" value="Subscribe" />
 </form>
 
-<p>… or, cut out the middleman and add <a href="rss.xml">my RSS/Atom feed</a> to
-  your preferred newsreader.</p>
+<p>You can also cut out the middleman and add <a href="rss.xml">my RSS/Atom
+    feed</a> to your preferred newsreader.</p>
 
 {% set latest_section = get_section(path="2024/_index.md") %}
 {% for post in latest_section.pages | slice(end=5) %}
