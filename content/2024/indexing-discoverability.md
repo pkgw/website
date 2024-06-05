@@ -1,5 +1,5 @@
 +++
-date = 2024-06-03T17:22:09-04:00
+date = 2024-06-05T10:30:00-04:00
 title = "Software Indexing and Discoverability"
 +++
 
@@ -33,7 +33,7 @@ chief reactions: “why” and “also, that is obviously impossible”. To the 
 that one can make any generalizations about large and diverse communities, the
 mindset is just very different. The prototypical scientist, if they think about
 this at all, is attracted to the possible upsides of having a good index without
-necessarily dwelling on the work needed to construct and maintain one, while the
+necessarily dwelling on the work needed to construct and maintain one. The
 prototypical developer does the opposite.
 
 To cut to the chase, I’m generally on what you might call the “developer” side
@@ -155,7 +155,7 @@ and the signal-to-noise is better.
 The other route is to continuously put in a ton of curatorial effort, like
 [ADS]. This is also awfully expensive, and a non-starter for all but the
 best-funded of projects. Unless … you can convince people to donate their
-effort: the Wikipedia model.
+effort. We can call this the Wikipedia model.
 
 [NPM]: https://www.npmjs.com/
 [ADS]: https://ui.adsabs.harvard.edu/
