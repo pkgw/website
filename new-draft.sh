@@ -31,4 +31,4 @@ title = ""
 
 EOF
 
-exec hidpi-chromium-launcher.sh code --new-window "$path"
+exec hidpi-chromium-launcher.sh code --new-window --goto "$path" .
