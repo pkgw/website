@@ -184,4 +184,4 @@ interactive figures, navigational chrome, and the rest.
 [1]: @/2024/digital-docs-are-web-apps.md
 
 You might ask: “why does this assembly language need to be TeX?” That gets to the
-question of what TeX gets right — a topic for another post.
+question of what TeX gets right — a topic for [another post](@/2024/what-tex-gets-right.md).
