@@ -99,11 +99,13 @@ Astronomy](https://astro.berkeley.edu/), where I conducted some of the first
 scientific studies using the [Allen Telescope Array](https://www.seti.org/ata).
 
 In 2012 I came to the CfA to work as a postdoc in [the group of Prof. Edo
-Berger](https://www.transients.science/), mainly doing time-domain radio
-astronomy. From 2018 to 2022 I held a joint appointment as the Innovation
-Scientist of the CfA and the American Astronomy Society (AAS), and as Director
-of the WorldWide Telescope project. Since 2023 I’ve been the scientific and
-technical lead for [DASCH](https://dasch.cfa.harvard.edu/).
+Berger](https://www.transients.science/), mainly doing multiwavelength
+time-domain studies of ultracool dwarfs, gravitational-wave event counterparts,
+and other variable phenomena. From 2018 to 2022 I held a joint appointment as
+the Innovation Scientist of the CfA and the [American Astronomy
+Society](https://aas.org/) (AAS), and as Director of the [WorldWide
+Telescope](https://worldwidetelescope.org/) project. Since 2023 I’ve been the
+scientific and technical lead for [DASCH](https://dasch.cfa.harvard.edu/).
 
 For lots more, see [my CV](@/cv.md).
 
