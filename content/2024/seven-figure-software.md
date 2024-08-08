@@ -252,3 +252,5 @@ adoption, and other social processes; and ultra-clear definitions of success. If
 we understand and even embrace the distinctive characteristics of software
 development, and think carefully about how those characteristics interact with
 our existing institutions, we can tap into an immense amount of potential.
+
+*See also [an addendum](@/2024/seven-figure-addendum.md).*

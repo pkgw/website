@@ -17,5 +17,5 @@ mkdir -p "content/$year"
 
 path="content/$year/$(basename "$draft")"
 echo "$draft" '->' "$path"
-git mv "$draft" "$path"
+mv "$draft" "$path"
 sed -i -e "s/@DATE@/$(date -Iseconds)/" "$path"
