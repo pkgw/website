@@ -143,13 +143,14 @@ total flux. The steps are as follows.
       zero out the sources with index numbers *j* ≤ *i*. That is, edit the
       actual component model image data to replace the pixel values around the
       bright source and the already-peeled ones with zeros. This requires some
-      custom Python code, but it's straightforward and not I/O-intensive.
+      custom Python code — see below for a suggested approach. It's
+      straightforward and not I/O-intensive.
    1. Use the task `ft` to fill `main.ms[MODEL_DATA]` with the Fourier transform
       of `template.$i.model`. This set of model visibilities therefore captures
       the non-nuisance sources, and any bright sources that we haven’t yet
       started dealing with.
    1. For each previously peeled source with index *j* < *i*, use the peeling
-      tool with its work MS (see blow). This will update `main.ms[MODEL_DATA]`
+      tool with its work MS (see below). This will update `main.ms[MODEL_DATA]`
       to add in the best-available DD-calibrated models for these sources. Once
       this is done, the model will capture everything in the image *except* the
       *i*th nuisance source, because we zeroed it out when creating
@@ -223,3 +224,36 @@ time-based interpolation? What if you also want to apply a bandpass correction?
 It just seemed like it was going to be really dodgy. The “empirical” approach
 isn’t as efficient, but it’s robust, and that’s a tradeoff I’m generally happy
 to make.
+
+
+## Zeroing Out Model Pixels
+
+One of the steps above requires zeroing out pixels in your component model
+image. In the `casapy` environment, this is not too hard when you know the right
+functions to call.
+
+```python
+# - `ia` is the CASA "image" tool, predefined in casapy
+# - `img_path` is the path of your CASA-format image
+# - `x` and `y` are the pixel coordinates of the source of interest
+#   in the image, rounded to the nearest integer
+# - `half_width` sets the size of the box to zero out; total box
+#    size is `2 * half_width + 1` pixels on a side
+
+blc = [x - half_width, y - half_width]
+trc = [x + half_width, y + half_width]
+ia.open(img_path)
+chunk = ia.getchunk(blc, trc)
+chunk.fill(0)
+ia.putchunk(chunk, blc)
+ia.close()
+```
+
+The important thing here is that `ia` is a predefined CASA variable that
+references the "image analysis" tool. `blc` and `trc` stand for "bottom-left
+corner" and "top-right corner", and specify the corners of the sub-rectangle of
+the image that will be read and written.
+
+If you’re using multi-frequency synthesis with multiple Taylor terms in your
+model, you would invoke this code in a loop, editing each Taylor-term image in
+the same way.
