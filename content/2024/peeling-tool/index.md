@@ -254,6 +254,16 @@ references the "image analysis" tool. `blc` and `trc` stand for "bottom-left
 corner" and "top-right corner", and specify the corners of the sub-rectangle of
 the image that will be read and written.
 
+Ideally there would be some algorithm that could reliably choose a good value
+for the `half_width` setting, but in most cases peeling is going to be a
+small-scale, hand-driven process, and right now my recommendation is to choose a
+value manually. You should look at the un-edited model image, locate your
+source, and pick a box size that will cover up your source pretty thoroughly,
+without covering any other nearby sources. Because the source to be peeled is
+usually bright and in the image sidelobes, there are usually not many other
+sources around it, so you can often use a box half-size of several tens of
+pixels.
+
 If you’re using multi-frequency synthesis with multiple Taylor terms in your
 model, you would invoke this code in a loop, editing each Taylor-term image in
 the same way.
