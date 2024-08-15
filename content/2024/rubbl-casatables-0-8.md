@@ -143,7 +143,7 @@ efforts to express MeasurementSet data to other serialization formats like
 [pc]: https://github.com/casacore/python-casacore
 
 This is, finally, where [`rubbl_casatables`] comes in. This [Rust crate]
-providers support for using the casatables container format in a self-contained
+provides support for using the casatables container format in a self-contained
 library that provides a hopefully-clean API.
 
 [Rust crate]: https://crates.io/
