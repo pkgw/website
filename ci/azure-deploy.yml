@@ -1,0 +1,10 @@
+
+jobs:
+
+- job: dummy
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+
+  - bash: echo ok
+    displayName: Dummy
