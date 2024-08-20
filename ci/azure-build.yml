@@ -20,7 +20,7 @@ jobs:
     displayName: "Build with Zola"
 
   - task: PublishPipelineArtifact@0
-    displayName: Publish built site as artifact
+    displayName: Store built site as pipeline artifact
     inputs:
       artifactName: website
       targetPath: $(build.artifactStagingDirectory)
