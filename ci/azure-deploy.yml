@@ -40,5 +40,8 @@ jobs:
       chmod 400 $HOME/.ssh/config $(sshKey.secureFilePath)
     displayName: Set up SSH for newton.cx
 
-  - bash: rsync -e 'ssh -i $(sshKey.secureFilePath)' -avP $(pipeline.workspace)/website/ newton.cx:zztest/
+  # The authorization of this SSH key on the server has a "command" restriction
+  # that forces the rsync operation and restricts things like port forwards. If
+  # this command line changes, the authorized_keys file will need to change too.
+  - bash: rsync -e 'ssh -i $(sshKey.secureFilePath)' -avP $(pipeline.workspace)/website/ newton.cx:website/
     displayName: rsync content
