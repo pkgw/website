@@ -24,10 +24,18 @@ jobs:
     inputs:
       secureFile: 'newtoncx_knownhost.txt'
 
+  # Ditto.
+  - task: DownloadSecureFile@1
+    name: sshConfig
+    displayName: 'Download ssh_config data'
+    inputs:
+      secureFile: 'newtoncx_sshconfig.txt'
+
   - bash: |
       mkdir -p $HOME/.ssh
       cat $(knownHost.secureFilePath) >>$HOME/.ssh/known_hosts
-    displayName: Set up SSH known_hosts
+      cp -p $(sshConfig.secureFilePath) $HOME/.ssh/config
+    displayName: Set up SSH for newton.cx
 
-  - bash: rsync -e 'ssh -i $(sshKey.secureFilePath) -p 2222' -avP $(pipeline.workspace)/website/ newton.cx:zztest/
+  - bash: rsync -e 'ssh -i $(sshKey.secureFilePath)' -avP $(pipeline.workspace)/website/ newton.cx:zztest/
     displayName: rsync content
