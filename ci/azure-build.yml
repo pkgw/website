@@ -12,8 +12,8 @@ jobs:
 
   - bash: |
       curl -fsSL \
-        'https://https://github.com/getzola/zola/releases/download/v${{ parameters.zolaVersion }}/zola-v${{ parameters.zolaVersion }}-x86_64-unknown-linux-gnu.tar.gz' \
-        | tar zx
+        'https://github.com/getzola/zola/releases/download/v${{ parameters.zolaVersion }}/zola-v${{ parameters.zolaVersion }}-x86_64-unknown-linux-gnu.tar.gz' \
+      | tar zx
     displayName: "Install Zola ${{ parameters.zolaVersion }}"
 
   - bash: ./zola build
