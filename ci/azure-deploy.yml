@@ -24,7 +24,9 @@ jobs:
     inputs:
       secureFile: 'newtoncx_knownhost.txt'
 
-  - bash: cat $(knownHost.secureFilePath) >>$HOME/.ssh/known_hosts
+  - bash: |
+      mkdir -p $HOME/.ssh
+      cat $(knownHost.secureFilePath) >>$HOME/.ssh/known_hosts
     displayName: Set up SSH known_hosts
 
   - bash: rsync -e 'ssh -i $(sshKey.secureFilePath) -p 2222' -avP $(pipeline.workspace)/website/ newton.cx:zztest/
