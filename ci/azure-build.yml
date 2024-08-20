@@ -16,5 +16,11 @@ jobs:
       | tar zx
     displayName: "Install Zola ${{ parameters.zolaVersion }}"
 
-  - bash: ./zola build
+  - bash: ./zola build -o $(build.artifactStagingDirectory)
     displayName: "Build with Zola"
+
+  - task: PublishPipelineArtifact@0
+    displayName: Publish built site as artifact
+    inputs:
+      artifactName: website
+      targetPath: $(build.artifactStagingDirectory)

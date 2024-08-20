@@ -1,10 +1,20 @@
 
 jobs:
 
-- job: dummy
+- job: upload
   pool:
     vmImage: ubuntu-latest
   steps:
 
-  - bash: echo ok
-    displayName: Dummy
+  - download: current
+
+  - checkout: self
+
+  - task: DownloadSecureFile@1
+    name: sshKey
+    displayName: 'Download SSH key'
+    inputs:
+      secureFile: 'websitecd_ed25519'
+
+  - bash: rsync -e 'ssh -i $(sshKey.secureFilePath) -p 2222' -avP $(pipeline.workspace)/website/ newton.cx:zztest/
+    displayName: rsync content
