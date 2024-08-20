@@ -31,10 +31,13 @@ jobs:
     inputs:
       secureFile: 'newtoncx_sshconfig.txt'
 
+  # Surprisingly, it seems that the "secure files" are not given restrictive
+  # filesystem permissions upon creation.
   - bash: |
       mkdir -p $HOME/.ssh
       cat $(knownHost.secureFilePath) >>$HOME/.ssh/known_hosts
       cp -p $(sshConfig.secureFilePath) $HOME/.ssh/config
+      chmod 400 $HOME/.ssh/config $(sshKey.secureFilePath)
     displayName: Set up SSH for newton.cx
 
   - bash: rsync -e 'ssh -i $(sshKey.secureFilePath)' -avP $(pipeline.workspace)/website/ newton.cx:zztest/
