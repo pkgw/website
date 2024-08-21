@@ -3,21 +3,11 @@
 
 //! State of the backing version control repository.
 
-use anyhow::{anyhow, bail};
-use log::{info, warn};
-use serde::{Deserialize, Serialize};
-use std::{
-    collections::{HashMap, HashSet},
-    fs::File,
-    io::{BufRead, BufReader, Read},
-    path::{Path, PathBuf},
-};
+use anyhow::anyhow;
+use std::path::{Path, PathBuf};
 use thiserror::Error as ThisError;
 
-use crate::{
-    a_ok_or, atry,
-    errors::{Error, Result},
-};
+use crate::{atry, errors::Result};
 
 /// Opaque type representing a commit in the repository.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -171,20 +161,15 @@ impl Repository {
         Ok(git2::Signature::now("deploytool", "deploytool@devnull")?)
     }
 
-    fn try_get_deploy_commit(&self) -> Result<Option<git2::Commit>> {
-        let release_ref = match self.repo.resolve_reference_from_short_name("origin/deploy") {
-            Ok(r) => r,
-            Err(e) => {
-                return if e.code() == git2::ErrorCode::NotFound {
-                    // No `deploy` branch in the upstream
-                    Ok(None)
-                } else {
-                    Err(e.into())
-                };
-            }
-        };
+    pub fn get_deploy_tree(&self) -> Result<git2::Tree<'_>> {
+        // XXXX origin/deploy
+        let short_name = "deploy";
 
-        Ok(Some(release_ref.peel_to_commit()?))
+        Ok(self
+            .repo
+            .resolve_reference_from_short_name(short_name)?
+            .peel_to_commit()?
+            .tree()?)
     }
 }
 

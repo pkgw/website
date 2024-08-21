@@ -45,16 +45,28 @@ impl AppSession {
                 return Ok(ExecutionEnvironment::NotCi);
             }
 
-            Ok(ExecutionEnvironment::MainCi)
+            if let Some("main") = maybe_ci_branch {
+                return Ok(ExecutionEnvironment::MainCi);
+            }
+
+            warn!("unexpected CI situation; treating as non-CI for safety/convenience");
+            Ok(ExecutionEnvironment::NotCi)
         }
     }
 
     /// Check that the current process is running in the "main" CI environment.
-    pub fn ensure_ci_main_mode(&self) -> Result<()> {
+    pub fn ensure_ci_main_mode(&self, force: bool) -> Result<()> {
         match self.execution_environment()? {
-            ExecutionEnvironment::NotCi => Err(anyhow!(
-                "no CI environment detected; this is unexpected for this command",
-            )),
+            ExecutionEnvironment::NotCi => {
+                if force {
+                    warn!("no CI environment detected, but proceeding anyway due to --force");
+                    Ok(())
+                } else {
+                    Err(anyhow!(
+                        "no CI environment detected; this is unexpected for this command",
+                    ))
+                }
+            }
 
             ExecutionEnvironment::MainCi => Ok(()),
         }
@@ -64,11 +76,16 @@ impl AppSession {
     /// ignored files but otherwise don't want any modifications, etc. Returns
     /// Ok if clean, an Err downcastable to DirtyRepositoryError if not. The
     /// error may have a different cause if, e.g., there is an I/O failure.
-    pub fn ensure_fully_clean(&self) -> Result<()> {
+    pub fn ensure_fully_clean(&self, force: bool) -> Result<()> {
         use crate::repository::DirtyRepositoryError;
 
         if let Some(changed_path) = self.repo.check_if_dirty()? {
-            Err(DirtyRepositoryError(changed_path).into())
+            if force {
+                warn!("repository is dirty, but proceeding anyway due to --force");
+                Ok(())
+            } else {
+                Err(DirtyRepositoryError(changed_path).into())
+            }
         } else {
             Ok(())
         }

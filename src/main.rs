@@ -2,6 +2,9 @@
 // Licensed under the MIT License.
 
 //! A deployment support tool for my personal website.
+//!
+//! This is strongly derived from Cranko. If this tool were written from scratch
+//! a bunch of the structure would probably be simpler and more reckless.
 
 use clap::Parser;
 use std::process;
@@ -54,12 +57,48 @@ fn main() {
 }
 
 impl Command for ApplyArgs {
+    /// For this command, we should be running in CI and on the `main` branch.
+    /// We compare the contents of `main`/HEAD to the `deploy` branch, and apply
+    /// publication metadata based on any differences: a new date for any new
+    /// files, and an "updated" date for any files modified since the last
+    /// deploy.
     fn execute(self) -> Result<i32, anyhow::Error> {
-        let mut sess = app::AppSession::initialize_default()?;
-        sess.ensure_fully_clean()?;
-        sess.ensure_ci_main_mode()?;
+        let sess = app::AppSession::initialize_default()?;
+        sess.ensure_fully_clean(self.force)?;
+        sess.ensure_ci_main_mode(self.force)?;
 
-        println!("hello");
+        let tree = sess.repo.get_deploy_tree()?;
+        let mut new_posts = vec![];
+
+        sess.repo.scan_paths(|p| {
+            if !p.starts_with("content/") || !p.ends_with(".md") {
+                return Ok(());
+            }
+
+            let found = match tree.get_path(p.as_path()) {
+                Ok(_) => true,
+                Err(e) => {
+                    if e.code() == git2::ErrorCode::NotFound {
+                        false
+                    } else {
+                        return Err(e.into());
+                    }
+                }
+            };
+
+            if !found {
+                new_posts.push(p.to_owned());
+            }
+
+            Ok(())
+        })?;
+
+        println!("Detected {} new pages.", new_posts.len());
+
+        if new_posts.is_empty() {
+            return Ok(0);
+        }
+
         Ok(0)
     }
 }
