@@ -6,6 +6,7 @@
 use clap::Parser;
 use std::process;
 
+mod app;
 mod errors;
 mod logger;
 mod repository;
@@ -23,7 +24,14 @@ trait Command {
 
 #[derive(clap::Args, Debug)]
 #[command()]
-struct ApplyArgs {}
+struct ApplyArgs {
+    #[arg(
+        short = 'f',
+        long,
+        help = "Force operation even in unexpected conditions"
+    )]
+    force: bool,
+}
 
 impl Command for DToolCli {
     fn execute(self) -> Result<i32, anyhow::Error> {
@@ -47,6 +55,10 @@ fn main() {
 
 impl Command for ApplyArgs {
     fn execute(self) -> Result<i32, anyhow::Error> {
+        let mut sess = app::AppSession::initialize_default()?;
+        sess.ensure_fully_clean()?;
+        sess.ensure_ci_main_mode()?;
+
         println!("hello");
         Ok(0)
     }
