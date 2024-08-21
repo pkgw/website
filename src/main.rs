@@ -8,6 +8,7 @@ use std::process;
 
 mod errors;
 mod logger;
+mod repository;
 
 #[derive(Debug, Parser)]
 #[command(name = "deploytool")]
