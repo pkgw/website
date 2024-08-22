@@ -255,7 +255,6 @@ impl Command for CommitArgs {
     /// current index as the merged tree.
     fn execute(self) -> Result<i32> {
         let mut sess = app::AppSession::initialize_default()?;
-        sess.ensure_fully_clean(self.force)?;
         sess.ensure_ci_main_mode(self.force)?;
         sess.repo.make_deploy_commit()?;
         Ok(0)
