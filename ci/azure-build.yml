@@ -8,6 +8,10 @@ jobs:
 - job: build
   pool:
     vmImage: ubuntu-latest
+
+  variables:
+    TOOLCHAIN: stable
+
   steps:
 
   - bash: |
@@ -16,11 +20,55 @@ jobs:
       | tar zx
     displayName: "Install Zola ${{ parameters.zolaVersion }}"
 
-  - bash: ./zola build -o $(build.artifactStagingDirectory) --force
-    displayName: "Build with Zola"
+  - bash: |
+      set -e
+      rustup set profile minimal
+      rustup component remove --toolchain=$TOOLCHAIN rust-docs || echo "already removed"
+      rustup update --no-self-update $TOOLCHAIN
+      rustup default $TOOLCHAIN
+      # Log versions
+      set -ex
+      rustup -V
+      rustc -Vv
+      cargo -V
+    displayName: Set up Rust
+
+  - bash: cargo build --release
+    displayName: "Build deploytool"
+
+  - bash: cargo build --release
+    displayName: "Build deploytool"
+
+  - bash: cargo run --release -- apply
+    displayName: "deploytool apply"
+
+  - bash: ./zola build -o $(build.artifactStagingDirectory)/website
+    displayName: "Build site with Zola"
 
   - task: PublishPipelineArtifact@0
     displayName: Store built site as pipeline artifact
     inputs:
       artifactName: website
-      targetPath: $(build.artifactStagingDirectory)
+      targetPath: $(build.artifactStagingDirectory)/website
+
+  # At some point we might add post-build analytics steps here
+
+  - bash: |
+      set -xeuo pipefail
+      git add .
+      cargo run --release -- commit
+      git show
+    displayName: "deploytool commit"
+
+  - bash: |
+      set -xeuo pipefail
+      artifact_dir="$(build.artifactStagingDirectory)/git-release"
+      mkdir -p "$artifact_dir"
+      git bundle create "$artifact_dir/release.bundle" origin/master..HEAD
+    displayName: "Bundle release commit"
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publish git bundle artifact
+    inputs:
+      artifactName: git-release
+      targetPath: $(build.artifactStagingDirectory)/git-release
