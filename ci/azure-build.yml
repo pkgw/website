@@ -36,9 +36,6 @@ jobs:
   - bash: cargo build --release
     displayName: "Build deploytool"
 
-  - bash: cargo build --release
-    displayName: "Build deploytool"
-
   - bash: cargo run --release -- apply
     displayName: "deploytool apply"
 

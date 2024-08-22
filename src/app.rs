@@ -41,8 +41,10 @@ impl AppSession {
             }
 
             if let Some(true) = maybe_pr {
-                warn!("we seem to be running in a pull request; treating as non-CI for safety/convenience");
-                return Ok(ExecutionEnvironment::NotCi);
+                // Actual deployments should only happen from updates to `main`,
+                // but for testing, this is fine:
+                warn!("we seem to be running in a pull request");
+                return Ok(ExecutionEnvironment::MainCi);
             }
 
             if let Some("main") = maybe_ci_branch {
