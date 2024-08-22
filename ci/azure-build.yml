@@ -36,10 +36,10 @@ jobs:
       cargo -V
     displayName: Set up Rust
 
-  - bash: cargo build --release
+  - bash: cargo build
     displayName: "Build deploytool"
 
-  - bash: cargo run --release -- apply
+  - bash: cargo run -- apply
     displayName: "deploytool apply"
 
   - bash: ./zola build -o $(build.artifactStagingDirectory)/website
@@ -56,7 +56,7 @@ jobs:
   - bash: |
       set -xeuo pipefail
       git add content
-      cargo run --release -- commit
+      cargo run -- commit
       git show
     displayName: "deploytool commit"
 

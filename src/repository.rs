@@ -141,7 +141,7 @@ impl Repository {
 
         let prev_deploy_commit = self
             .repo
-            .resolve_reference_from_short_name(local_ref_name)?
+            .resolve_reference_from_short_name("origin/deploy")?
             .peel_to_commit()?;
 
         self.repo.reference(
