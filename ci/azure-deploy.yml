@@ -44,7 +44,7 @@ jobs:
   # The authorization of this SSH key on the server has a "command" restriction
   # that forces the rsync operation and restricts things like port forwards. If
   # this command line changes, the authorized_keys file will need to change too.
-  - bash: rsync -e 'ssh -i $(sshKey.secureFilePath)' -avP $(pipeline.workspace)/website/ newton.cx:public_html/
+  - bash: rsync -e 'ssh -i $(sshKey.secureFilePath)' -aP $(pipeline.workspace)/website/ newton.cx:public_html/
     displayName: rsync content
 
 - job: push
@@ -63,7 +63,7 @@ jobs:
 
   - bash: |
       git switch -c deploy
-      git pull --ff-only $(pipeline.workspace)/git-release/deploy.bundle
+      git pull --ff-only $(pipeline.workspace)/git-deploy/deploy.bundle
     displayName: Restore deploy commit
 
   - bash: |
