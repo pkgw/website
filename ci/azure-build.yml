@@ -55,20 +55,20 @@ jobs:
 
   - bash: |
       set -xeuo pipefail
-      git add .
+      git add content
       cargo run --release -- commit
       git show
     displayName: "deploytool commit"
 
   - bash: |
       set -xeuo pipefail
-      artifact_dir="$(build.artifactStagingDirectory)/git-release"
+      artifact_dir="$(build.artifactStagingDirectory)/git-deploy"
       mkdir -p "$artifact_dir"
-      git bundle create "$artifact_dir/release.bundle" origin/master..HEAD
-    displayName: "Bundle release commit"
+      git bundle create "$artifact_dir/deploy.bundle" origin/master..HEAD
+    displayName: "Bundle deploy commit"
 
   - task: PublishPipelineArtifact@1
     displayName: Publish git bundle artifact
     inputs:
-      artifactName: git-release
-      targetPath: $(build.artifactStagingDirectory)/git-release
+      artifactName: git-deploy
+      targetPath: $(build.artifactStagingDirectory)/git-deploy
