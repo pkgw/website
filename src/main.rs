@@ -28,27 +28,18 @@ use errors::Result;
 #[command(bin_name = "deploytool")]
 enum DToolCli {
     Apply(ApplyArgs),
+    Commit(CommitArgs),
 }
 
 trait Command {
     fn execute(self) -> Result<i32>;
 }
 
-#[derive(clap::Args, Debug)]
-#[command()]
-struct ApplyArgs {
-    #[arg(
-        short = 'f',
-        long,
-        help = "Force operation even in unexpected conditions"
-    )]
-    force: bool,
-}
-
 impl Command for DToolCli {
     fn execute(self) -> Result<i32> {
         match self {
             Self::Apply(o) => o.execute(),
+            Self::Commit(o) => o.execute(),
         }
     }
 }
@@ -63,6 +54,19 @@ fn main() {
     log::set_max_level(log::LevelFilter::Info);
 
     process::exit(errors::report(opts.execute()));
+}
+
+// deploytool apply
+
+#[derive(clap::Args, Debug)]
+#[command()]
+struct ApplyArgs {
+    #[arg(
+        short = 'f',
+        long,
+        help = "Force operation even in unexpected conditions"
+    )]
+    force: bool,
 }
 
 impl Command for ApplyArgs {
@@ -228,5 +232,32 @@ impl ApplyArgs {
             Err(atomicwrites::Error::User(e)) => Err(e),
             Ok(()) => Ok(()),
         }
+    }
+}
+
+// deploytool commit
+
+#[derive(clap::Args, Debug)]
+#[command()]
+struct CommitArgs {
+    #[arg(
+        short = 'f',
+        long,
+        help = "Force operation even in unexpected conditions"
+    )]
+    force: bool,
+}
+
+impl Command for CommitArgs {
+    /// For this command, we should be running in CI and on the `main` branch.
+    /// Changes will have been made and `git add`-ed. We generate a new commit
+    /// on the `deploy` branch that merges `main` into `deploy`, using the
+    /// current index as the merged tree.
+    fn execute(self) -> Result<i32> {
+        let mut sess = app::AppSession::initialize_default()?;
+        sess.ensure_fully_clean(self.force)?;
+        sess.ensure_ci_main_mode(self.force)?;
+        sess.repo.make_deploy_commit()?;
+        Ok(0)
     }
 }

@@ -4,6 +4,7 @@
 //! State of the backing version control repository.
 
 use anyhow::anyhow;
+use log::info;
 use std::path::{Path, PathBuf};
 use thiserror::Error as ThisError;
 
@@ -170,6 +171,64 @@ impl Repository {
             .resolve_reference_from_short_name(short_name)?
             .peel_to_commit()?
             .tree()?)
+    }
+
+    pub fn make_deploy_commit(&mut self) -> Result<()> {
+        // Gather useful info.
+
+        let head_ref = self.repo.head()?;
+        let head_commit = head_ref.peel_to_commit()?;
+        let sig = self.get_signature()?;
+        let local_ref_name = "refs/heads/deploy";
+        let message = "Deployment metadata commit";
+
+        // Turn the current index into a Tree.
+
+        let tree_oid = {
+            let mut index = self.repo.index()?;
+            index.write_tree()?
+        };
+        let tree = self.repo.find_tree(tree_oid)?;
+
+        // Create the merged deploy commit and save it under the
+        // local_ref_name.
+
+        let prev_deploy_commit = self
+            .repo
+            .resolve_reference_from_short_name(local_ref_name)?
+            .peel_to_commit()?;
+
+        self.repo.reference(
+            &local_ref_name,
+            prev_deploy_commit.id(),
+            true,
+            "update deploy",
+        )?;
+
+        let commit_id = self.repo.commit(
+            Some(&local_ref_name), // update_ref
+            &sig,                  // author
+            &sig,                  // committer
+            &message,
+            &tree,
+            &[&prev_deploy_commit, &head_commit], // parents
+        )?;
+
+        // Switch the working directory to be the checkout of our new merge
+        // commit. By construction, nothing on the filesystem should actually
+        // change.
+
+        info!("switching HEAD to `{}`", local_ref_name);
+        self.repo.set_head(&local_ref_name)?;
+        self.repo.reset(
+            self.repo.find_commit(commit_id)?.as_object(),
+            git2::ResetType::Mixed,
+            None,
+        )?;
+
+        // Phew, all done!
+
+        Ok(())
     }
 }
 
