@@ -75,7 +75,7 @@ jobs:
     displayName: Install latest Cranko
 
   - bash: |
-      ./cranko github install-credential-helper
+      cranko github install-credential-helper
     displayName: Set up Git pushes
     env:
       GITHUB_TOKEN: $(GITHUB_TOKEN)
