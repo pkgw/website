@@ -1,0 +1,23 @@
+[package]
+name = "deploytool"
+version = "0.1.0"
+authors = ["Peter Williams <peter@newton.cx>"]
+edition = "2021"
+license = "MIT"
+description = "Support tool for deploying my personal website"
+repository = "https://github.com/pkgw/website"
+readme = "README.md"
+
+[dependencies]
+anyhow = "1"
+atomicwrites = "0.4"
+ci_info = "0.14"
+clap = { version = "4.5", features = ["derive"] }
+git2 = "0.19"
+lazy_static = "1.4"
+log = "0.4"
+thiserror = "1.0"
+time = { version = "0.3", features = ["formatting", "parsing"] }
+
+[features]
+vendored-openssl = ["git2/vendored-openssl"]

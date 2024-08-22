@@ -4,6 +4,7 @@ jobs:
 - job: upload
   pool:
     vmImage: ubuntu-latest
+
   steps:
 
   - download: current
@@ -43,5 +44,43 @@ jobs:
   # The authorization of this SSH key on the server has a "command" restriction
   # that forces the rsync operation and restricts things like port forwards. If
   # this command line changes, the authorized_keys file will need to change too.
-  - bash: rsync -e 'ssh -i $(sshKey.secureFilePath)' -avP $(pipeline.workspace)/website/ newton.cx:public_html/
+  - bash: rsync -e 'ssh -i $(sshKey.secureFilePath)' -aP $(pipeline.workspace)/website/ newton.cx:public_html/
     displayName: rsync content
+
+- job: push
+  pool:
+    vmImage: ubuntu-latest
+
+  variables:
+  - group: Deployment Credentials
+
+  steps:
+
+  - download: current
+
+  - checkout: self
+    fetchDepth: 0
+
+  - bash: |
+      git switch -c deploy
+      git pull --ff-only $(pipeline.workspace)/git-deploy/deploy.bundle
+    displayName: Restore deploy commit
+
+  - bash: |
+      set -euo pipefail
+      d="$(mktemp -d /tmp/cranko.XXXXXX)"
+      cd "$d"
+      curl --proto '=https' --tlsv1.2 -sSf https://pkgw.github.io/cranko/fetch-latest.sh | sh
+      echo "##vso[task.prependpath]$d"
+    displayName: Install latest Cranko
+
+  - bash: |
+      cranko github install-credential-helper
+    displayName: Set up Git pushes
+    env:
+      GITHUB_TOKEN: $(GITHUB_TOKEN)
+
+  - bash: git push origin deploy:deploy
+    displayName: Push deploy branch
+    env:
+      GITHUB_TOKEN: $(GITHUB_TOKEN)
