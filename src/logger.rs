@@ -33,14 +33,6 @@ impl Logger {
     pub fn print_err_note<T: Display>(msg: T) {
         eprintln!("note: {}", msg);
     }
-
-    pub fn println_highlighted<T1: Display, T2: Display, T3: Display>(
-        before: T1,
-        highlight: T2,
-        after: T3,
-    ) {
-        println!("{}{}{}", before, highlight, after);
-    }
 }
 
 impl Log for Logger {

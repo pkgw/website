@@ -14,6 +14,9 @@ jobs:
 
   steps:
 
+  - checkout: self
+    fetchDepth: 0
+
   - bash: |
       curl -fsSL \
         'https://github.com/getzola/zola/releases/download/v${{ parameters.zolaVersion }}/zola-v${{ parameters.zolaVersion }}-x86_64-unknown-linux-gnu.tar.gz' \
