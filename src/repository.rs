@@ -3,22 +3,11 @@
 
 //! State of the backing version control repository.
 
-use anyhow::anyhow;
 use log::info;
 use std::path::{Path, PathBuf};
 use thiserror::Error as ThisError;
 
 use crate::{atry, errors::Result};
-
-/// Opaque type representing a commit in the repository.
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
-pub struct CommitId(git2::Oid);
-
-impl std::fmt::Display for CommitId {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        self.0.fmt(f)
-    }
-}
 
 /// An empty error returned when the backing repository is "bare", without a
 /// working directory. We cannot operate on such repositories.
@@ -64,22 +53,6 @@ impl Repository {
         }
 
         Ok(Repository { repo })
-    }
-
-    /// Get the name of the currently active branch, if there is one.
-    pub fn current_branch_name(&self) -> Result<Option<String>> {
-        let head_ref = self.repo.head()?;
-
-        Ok(if !head_ref.is_branch() {
-            None
-        } else {
-            Some(
-                head_ref
-                    .shorthand()
-                    .ok_or_else(|| anyhow!("current branch name not Unicode"))?
-                    .to_owned(),
-            )
-        })
     }
 
     /// Resolve a `RepoPath` repository path to a filesystem path in the working
@@ -132,39 +105,12 @@ impl Repository {
         Ok(None)
     }
 
-    /// Get the binary content of the file at the specified path, at the time of
-    /// the specified commit. If the path did not exist, `Ok(None)` is returned.
-    pub fn get_file_at_commit(&self, cid: &CommitId, path: &RepoPath) -> Result<Option<Vec<u8>>> {
-        let commit = self.repo.find_commit(cid.0)?;
-        let tree = commit.tree()?;
-        let entry = match tree.get_path(path.as_path()) {
-            Ok(e) => e,
-            Err(e) => {
-                return if e.code() == git2::ErrorCode::NotFound {
-                    Ok(None)
-                } else {
-                    Err(e.into())
-                };
-            }
-        };
-        let object = entry.to_object(&self.repo)?;
-        let blob = object.as_blob().ok_or_else(|| {
-            anyhow!(
-                "path `{}` should correspond to a Git blob but does not",
-                path.escaped(),
-            )
-        })?;
-
-        Ok(Some(blob.content().to_owned()))
-    }
-
     fn get_signature(&self) -> Result<git2::Signature> {
         Ok(git2::Signature::now("deploytool", "deploytool@devnull")?)
     }
 
     pub fn get_deploy_tree(&self) -> Result<git2::Tree<'_>> {
-        // XXXX origin/deploy
-        let short_name = "deploy";
+        let short_name = "origin/deploy";
 
         Ok(self
             .repo
@@ -371,58 +317,6 @@ impl std::convert::AsRef<[u8]> for RepoPathBuf {
 impl RepoPathBuf {
     pub fn new(b: &[u8]) -> Self {
         RepoPathBuf(b.to_vec())
-    }
-
-    /// Create a RepoPathBuf from a Path-like. It is assumed that the path is
-    /// relative to the repository working directory root and doesn't have any
-    /// funny business like ".." in it.
-    #[cfg(unix)]
-    #[allow(clippy::unnecessary_wraps)]
-    fn from_path<P: AsRef<Path>>(p: P) -> Result<Self> {
-        use std::os::unix::ffi::OsStrExt;
-        Ok(Self::new(p.as_ref().as_os_str().as_bytes()))
-    }
-
-    /// Create a RepoPathBuf from a Path-like. It is assumed that the path is
-    /// relative to the repository working directory root and doesn't have any
-    /// funny business like ".." in it.
-    #[cfg(windows)]
-    fn from_path<P: AsRef<Path>>(p: P) -> Result<Self> {
-        let mut first = true;
-        let mut b = Vec::new();
-
-        for cmpt in p.as_ref().components() {
-            if first {
-                first = false;
-            } else {
-                b.push(b'/');
-            }
-
-            if let std::path::Component::Normal(c) = cmpt {
-                b.extend(c.to_str().unwrap().as_bytes());
-            } else {
-                bail!(
-                    "path with unexpected components: `{}`",
-                    p.as_ref().display()
-                );
-            }
-        }
-
-        Ok(RepoPathBuf(b))
-    }
-
-    pub fn truncate(&mut self, len: usize) {
-        self.0.truncate(len);
-    }
-
-    pub fn push<C: AsRef<[u8]>>(&mut self, component: C) {
-        let n = self.0.len();
-
-        if n > 0 && self.0[n - 1] != b'/' {
-            self.0.push(b'/');
-        }
-
-        self.0.extend(component.as_ref());
     }
 }
 
