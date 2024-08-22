@@ -21,7 +21,7 @@ path="content/howto/$slug"
 
 cat <<EOF >"$path"
 +++
-date = $(date -Iseconds)
+date = $(date +"%FT00:00:00%:z")
 title = ""
 weight = 0 # all howtos have zero weight => alphabetical ordering
 template = "howto.html"
