@@ -24,7 +24,7 @@ path="content/$year/$slug"
 
 cat <<EOF >"$path"
 +++
-date = $(date -Iseconds)
+date = $(date +"%FT00:00:00%:z")
 title = ""
 +++
 
