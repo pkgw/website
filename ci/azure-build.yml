@@ -36,6 +36,7 @@ jobs:
       cargo -V
     displayName: Set up Rust
 
+  # We save about 30s by building in debug rather than release mode.
   - bash: cargo build
     displayName: "Build deploytool"
 
@@ -64,7 +65,7 @@ jobs:
       set -xeuo pipefail
       artifact_dir="$(build.artifactStagingDirectory)/git-deploy"
       mkdir -p "$artifact_dir"
-      git bundle create "$artifact_dir/deploy.bundle" origin/master..HEAD
+      git bundle create "$artifact_dir/deploy.bundle" origin/main..HEAD
     displayName: "Bundle deploy commit"
 
   - task: PublishPipelineArtifact@1
