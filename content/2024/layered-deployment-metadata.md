@@ -1,5 +1,5 @@
 +++
-date = 2024-08-22T20:14:33-04:00 # deploytool
+date = 2024-08-22T16:14:33-04:00 # deploytool
 title = "Layered Deployment Metadata"
 +++
 
