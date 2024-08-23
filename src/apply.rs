@@ -3,15 +3,27 @@
 
 //! The `apply` action.
 
+use anyhow::bail;
 use log::warn;
 use std::{
     fs::File,
-    io::{BufRead, BufReader, Write},
+    io::{BufRead, BufReader, Read, Write},
     path::Path,
 };
-use time::OffsetDateTime;
+use time::{
+    format_description::well_known::iso8601::{Config, EncodedConfig, Iso8601, TimePrecision},
+    OffsetDateTime,
+};
 
-use crate::{app::AppSession, atry, errors::Result, Command};
+use crate::{a_ok_or, app::AppSession, atry, errors::Result, Command};
+
+const FMT_CONFIG: EncodedConfig = Config::DEFAULT
+    .set_time_precision(TimePrecision::Second {
+        decimal_digits: None,
+    })
+    .encode();
+
+const TIME_FORMAT: Iso8601<FMT_CONFIG> = Iso8601;
 
 #[derive(clap::Args, Debug)]
 #[command()]
@@ -58,7 +70,24 @@ impl Command for ApplyArgs {
             };
 
             if let Some(ent) = maybe_entry {
-                old_posts.push(p.to_owned());
+                // We appear to have a pre-existing file. Check whether we need to
+                // rewrite the working-tree version, by scanning the deploy content
+                // for a deploytool-assigned timestamp.
+
+                let object = sess.repo.entry_to_object(&ent)?;
+                let blob = a_ok_or!(
+                    object.as_blob();
+                    ["path `{}` should correspond to a Git blob but does not", p.escaped()]
+                );
+
+                let maybe_timestamp = atry!(
+                    self.timestamp_from_markdown(blob.content());
+                    ["failed to scan deploy branch file `{}` for metadata", p.escaped()]
+                );
+
+                if let Some(ts) = maybe_timestamp {
+                    old_posts.push((p.to_owned(), ts));
+                }
             } else {
                 new_posts.push(p.to_owned());
             }
@@ -66,37 +95,94 @@ impl Command for ApplyArgs {
             Ok(())
         })?;
 
-        println!(
-            "Detected {} new pages, {} existing.",
-            new_posts.len(),
-            old_posts.len()
-        );
+        println!("Detected {} new pages.", new_posts.len());
 
         for repopath in &new_posts {
             let fspath = sess.repo.resolve_workdir(repopath);
 
             atry!(
-                self.timestamp_new_page(&fspath, pubdate);
+                self.apply_metadata_to_page(&fspath, pubdate);
                 ["failed to timestamp `{}`", fspath.display()]
             );
         }
+
+        for (repopath, pagedate) in &old_posts {
+            let fspath = sess.repo.resolve_workdir(repopath);
+
+            atry!(
+                self.apply_metadata_to_page(&fspath, *pagedate);
+                ["failed to timestamp `{}`", fspath.display()]
+            );
+        }
+
+        println!("Updated {} existing pages.", old_posts.len());
 
         Ok(0)
     }
 }
 
 impl ApplyArgs {
-    fn timestamp_new_page(&self, path: &Path, pubdate: OffsetDateTime) -> Result<()> {
-        use time::format_description::well_known::iso8601::{
-            Config, EncodedConfig, Iso8601, TimePrecision,
-        };
-        const FMT_CONFIG: EncodedConfig = Config::DEFAULT
-            .set_time_precision(TimePrecision::Second {
-                decimal_digits: None,
-            })
-            .encode();
-        let fmt = Iso8601::<FMT_CONFIG>;
+    /// Given a Zola content file, obtain its date stamp. We scan the file for
+    /// `date = ...` frontmatter with a ` # deploytool` comment on the line. If
+    /// no such comment is present, we return Ok(None). If something unexpected
+    /// happens, we return an error.
+    fn timestamp_from_markdown<R: Read>(&self, stream: R) -> Result<Option<OffsetDateTime>> {
+        let reader = BufReader::new(stream);
 
+        enum State {
+            Start,
+            Frontmatter,
+        }
+
+        let mut state = State::Start;
+
+        for line in reader.lines() {
+            let line: String = atry!(
+                line;
+                ["failed to read from the file"]
+            );
+
+            match state {
+                State::Start => {
+                    if line == "+++" {
+                        state = State::Frontmatter;
+                    } else {
+                        // We could potentially return Ok(None) here
+                        bail!("file does not appear to be Zola content (no `+++`)");
+                    }
+                }
+
+                State::Frontmatter => {
+                    if line == "+++" {
+                        // No `date`; assume this is fine
+                        return Ok(None);
+                    } else if let Some(date_text) = line.strip_prefix("date = ") {
+                        // If the annotation isn't there, treat this as a legacy
+                        // file that doesn't need rewriting. That's fine.
+                        if !date_text.contains("deploytool") {
+                            return Ok(None);
+                        }
+
+                        let mut words_iter = date_text.split_whitespace();
+
+                        if let Some(word) = words_iter.next() {
+                            return Ok(Some(atry!(
+                                OffsetDateTime::parse(word, &Iso8601::DEFAULT);
+                                ["failed to parse ISO8601 `{}`", word]
+                            )));
+                        } else {
+                            bail!("file has malformatted `date` frontmatter item");
+                        }
+                    }
+                }
+            }
+        }
+
+        // If we got here, we saw the first `+++` but not the second.
+        bail!("file appears to be truncated Zola content");
+    }
+
+    fn apply_metadata_to_page(&self, path: &Path, pubdate: OffsetDateTime) -> Result<()> {
         // Rewrite the frontmatter manually instead of using something like
         // toml_edit. It should be fine.
 
@@ -161,7 +247,7 @@ impl ApplyArgs {
                                 writeln!(
                                     new_f,
                                     "date = {} # deploytool",
-                                    deploydate.format(&fmt).unwrap()
+                                    deploydate.format(&TIME_FORMAT).unwrap()
                                 );
                                 ["failed to write to new tempfile"]
                             );

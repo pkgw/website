@@ -142,6 +142,10 @@ impl Repository {
         Ok(None)
     }
 
+    pub fn entry_to_object(&self, entry: &git2::TreeEntry<'_>) -> Result<git2::Object> {
+        Ok(entry.to_object(&self.repo)?)
+    }
+
     fn get_signature(&self) -> Result<git2::Signature> {
         Ok(git2::Signature::now("deploytool", "deploytool@devnull")?)
     }
