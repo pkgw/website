@@ -3,11 +3,12 @@
 
 //! State of the backing version control repository.
 
+use anyhow::bail;
 use log::info;
 use std::path::{Path, PathBuf};
 use thiserror::Error as ThisError;
 
-use crate::{atry, errors::Result};
+use crate::{a_ok_or, atry, errors::Result};
 
 /// An empty error returned when the backing repository is "bare", without a
 /// working directory. We cannot operate on such repositories.
@@ -41,6 +42,9 @@ impl std::fmt::Display for DirtyRepositoryError {
 pub struct Repository {
     /// The underlying `git2` repository object.
     repo: git2::Repository,
+
+    /// The name of the upstream remote.
+    upstream_name: String,
 }
 
 impl Repository {
@@ -52,7 +56,40 @@ impl Repository {
             return Err(BareRepositoryError.into());
         }
 
-        Ok(Repository { repo })
+        // Detect the name of the upstream
+
+        let mut upstream_name = None;
+        let mut n_remotes = 0;
+
+        // `None` happens if a remote name is not valid UTF8. At the moment
+        // I can't be bothered to properly handle that, so we just skip those
+        // with the `flatten()`
+        for remote_name in repo.remotes()?.into_iter().flatten() {
+            n_remotes += 1;
+
+            if upstream_name.is_none() || remote_name == "origin" {
+                upstream_name = Some(remote_name.to_owned());
+            }
+        }
+
+        let upstream_name = a_ok_or!(
+            upstream_name;
+            ["no usable remotes in the Git repo"]
+        )
+        .to_owned();
+
+        if n_remotes > 1 && upstream_name != "origin" {
+            bail!("no way to choose among multiple Git remotes");
+        }
+
+        Ok(Repository {
+            repo,
+            upstream_name,
+        })
+    }
+
+    fn upstream_deploy_branch_name(&self) -> String {
+        format!("{}/deploy", self.upstream_name)
     }
 
     /// Resolve a `RepoPath` repository path to a filesystem path in the working
@@ -110,11 +147,9 @@ impl Repository {
     }
 
     pub fn get_deploy_tree(&self) -> Result<git2::Tree<'_>> {
-        let short_name = "origin/deploy";
-
         Ok(self
             .repo
-            .resolve_reference_from_short_name(short_name)?
+            .resolve_reference_from_short_name(&self.upstream_deploy_branch_name())?
             .peel_to_commit()?
             .tree()?)
     }
@@ -141,7 +176,7 @@ impl Repository {
 
         let prev_deploy_commit = self
             .repo
-            .resolve_reference_from_short_name("origin/deploy")?
+            .resolve_reference_from_short_name(&self.upstream_deploy_branch_name())?
             .peel_to_commit()?;
 
         self.repo.reference(
