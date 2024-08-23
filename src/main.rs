@@ -193,11 +193,7 @@ impl ApplyArgs {
                                 ["failed to parse ISO8601 `{}`", datestr]
                             );
 
-                            let deploydate = OffsetDateTime::new_in_offset(
-                                pubdate.date(),
-                                pubdate.time(),
-                                devdate.offset(),
-                            );
+                            let deploydate = pubdate.to_offset(devdate.offset());
 
                             atry!(
                                 writeln!(
