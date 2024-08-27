@@ -1,0 +1,67 @@
+jobs:
+
+- job: prep
+  pool:
+    vmImage: ubuntu-latest
+
+  variables:
+    TOOLCHAIN: stable
+
+  steps:
+
+  - checkout: self
+    fetchDepth: 0
+
+  - bash: |
+      set -e
+      rustup set profile minimal
+      rustup component remove --toolchain=$TOOLCHAIN rust-docs || echo "already removed"
+      rustup update --no-self-update $TOOLCHAIN
+      rustup default $TOOLCHAIN
+      # Log versions
+      set -ex
+      rustup -V
+      rustc -Vv
+      cargo -V
+    displayName: Set up Rust
+
+  - bash: cargo build --release
+    displayName: "Build deploytool"
+
+  - bash: cargo run --release -- apply
+    displayName: "deploytool apply"
+
+  # Other pre-build steps could potentially happen here
+
+  - bash: |
+      set -xeuo pipefail
+      git add content
+      cargo run --release -- commit
+      git show
+    displayName: "deploytool commit"
+
+  - bash: |
+      set -xeuo pipefail
+      artifact_dir="$(build.artifactStagingDirectory)/git-deploy-prep"
+      mkdir -p "$artifact_dir"
+      git bundle create "$artifact_dir/deploy-prep.bundle" origin/main..HEAD
+    displayName: "Bundle deploy-prep commit"
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publish git bundle artifact
+    inputs:
+      artifactName: git-deploy-prep
+      targetPath: $(build.artifactStagingDirectory)/git-deploy-prep
+
+  - bash: |
+      set -xeuo pipefail
+      artifact_dir="$(build.artifactStagingDirectory)/deploytool"
+      mkdir -p "$artifact_dir"
+      cp target/release/deploytool "${artifact_dir}/"
+    displayName: "Create deploytool binary artifact"
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publish deploytool binary artifact
+    inputs:
+      targetPath: '$(build.artifactStagingDirectory)/deploytool'
+      artifactName: deploytool
