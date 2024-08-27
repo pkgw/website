@@ -93,4 +93,12 @@ jobs:
       echo "PID: $(system.planId)"
       echo "TID: $(system.timelineId)"
       echo "TPID: $(system.teamProjectId)"
+      u="$(system.collectionUri)$(system.teamProject)/_apis/build/builds/$(build.buildId)/timeline/$(system.timelineId)?api-version=5.1"
+      curl -fsSL "$u"
     displayName: Print stuff
+
+  - bash: |
+      set -x
+      u="$(system.collectionUri)$(system.teamProject)/_apis/build/builds/$(build.buildId)/timeline/$(system.timelineId)?api-version=5.1"
+      curl -fsSL "$u"
+    displayName: Print again
