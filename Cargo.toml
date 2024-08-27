@@ -11,6 +11,7 @@ readme = "README.md"
 [dependencies]
 anyhow = "1"
 atomicwrites = "0.4"
+byte-unit = "5.1"
 ci_info = "0.14"
 clap = { version = "4.5", features = ["derive"] }
 git2 = "0.19"
@@ -20,6 +21,7 @@ log = "0.4"
 reqwest = { version = "^0.12", features = ["blocking"] }
 thiserror = "1.0"
 time = { version = "0.3", features = ["formatting", "parsing"] }
+walkdir = "2.5"
 
 [features]
 vendored-openssl = ["git2/vendored-openssl"]

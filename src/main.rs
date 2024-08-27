@@ -17,17 +17,17 @@ mod errors;
 mod github;
 mod logger;
 mod repository;
+mod size_report;
 
-use apply::ApplyArgs;
-use commit::CommitArgs;
 use errors::Result;
 
 #[derive(Debug, Parser)]
 #[command(name = "deploytool")]
 #[command(bin_name = "deploytool")]
 enum DToolCli {
-    Apply(ApplyArgs),
-    Commit(CommitArgs),
+    Apply(apply::ApplyArgs),
+    Commit(commit::CommitArgs),
+    SizeReport(size_report::SizeReportArgs),
 }
 
 trait Command {
@@ -39,6 +39,7 @@ impl Command for DToolCli {
         match self {
             Self::Apply(o) => o.execute(),
             Self::Commit(o) => o.execute(),
+            Self::SizeReport(o) => o.execute(),
         }
     }
 }
