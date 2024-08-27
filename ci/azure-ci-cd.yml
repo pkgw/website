@@ -4,11 +4,21 @@ trigger:
     - main
 
 stages:
+- stage: Prep
+  jobs:
+  - template: azure-prep.yml
+
 - stage: Build
+  condition: succeeded('Prep')
   jobs:
   - template: azure-build.yml
 
+- stage: Summarize
+  condition: succeeded('Build')
+  jobs:
+  - template: azure-summarize.yml
+
 - stage: Deploy
-  condition: and(succeeded('Build'), ne(variables['build.reason'], 'PullRequest'))
+  condition: and(succeeded('Summarize'), ne(variables['build.reason'], 'PullRequest'))
   jobs:
   - template: azure-deploy.yml

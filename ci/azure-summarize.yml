@@ -1,0 +1,51 @@
+# As-is, this stage doesn't make a ton of sense, but in principle we could have
+# a bunch of build steps running in parallel. Once they all complete and are
+# successful, we need to gather all of their outputs and commit them to the
+# `deploy` branch in one chunk, so we need a separate stage to act as the
+# "gather" step that only runs once all of the build steps complete.
+
+jobs:
+
+- job: summarize
+  pool:
+    vmImage: ubuntu-latest
+
+  steps:
+
+  - download: current
+
+  - checkout: self
+    fetchDepth: 0
+
+  - bash: |
+      git switch -c deploy
+      git pull --ff-only $(pipeline.workspace)/git-deploy-prep/deploy-prep.bundle
+    displayName: Restore deploy-prep commit
+
+  - bash: |
+      set -xeuo pipefail
+
+      cp $(pipeline.workspace)/size-report/_output_treesize.txt .
+
+      export GIT_AUTHOR_NAME=deploytool
+      export GIT_AUTHOR_EMAIL=deploytool@devnull
+      export GIT_COMMITTER_NAME=$GIT_AUTHOR_NAME
+      export GIT_COMMITTER_EMAIL=$GIT_AUTHOR_EMAIL
+
+      git add .
+      git commit --allow-empty -m "Ingest post-build metadata"
+      git show
+    displayName: "Commit post-build metadata"
+
+  - bash: |
+      set -xeuo pipefail
+      artifact_dir="$(build.artifactStagingDirectory)/git-deploy-post"
+      mkdir -p "$artifact_dir"
+      git bundle create "$artifact_dir/deploy-post.bundle" origin/main..HEAD
+    displayName: "Bundle deploy-post commit"
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publish git bundle artifact
+    inputs:
+      artifactName: git-deploy-post
+      targetPath: $(build.artifactStagingDirectory)/git-deploy-post

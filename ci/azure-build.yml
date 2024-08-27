@@ -9,10 +9,13 @@ jobs:
   pool:
     vmImage: ubuntu-latest
 
+  # XXX: Needed so that we can post our robotic GitHub comment
   variables:
-    TOOLCHAIN: stable
+  - group: Deployment Credentials
 
   steps:
+
+  - download: current
 
   - checkout: self
     fetchDepth: 0
@@ -24,24 +27,9 @@ jobs:
     displayName: "Install Zola ${{ parameters.zolaVersion }}"
 
   - bash: |
-      set -e
-      rustup set profile minimal
-      rustup component remove --toolchain=$TOOLCHAIN rust-docs || echo "already removed"
-      rustup update --no-self-update $TOOLCHAIN
-      rustup default $TOOLCHAIN
-      # Log versions
-      set -ex
-      rustup -V
-      rustc -Vv
-      cargo -V
-    displayName: Set up Rust
-
-  # We save about 30s by building in debug rather than release mode.
-  - bash: cargo build
-    displayName: "Build deploytool"
-
-  - bash: cargo run -- apply
-    displayName: "deploytool apply"
+      git switch -c deploy
+      git pull --ff-only $(pipeline.workspace)/git-deploy-prep/deploy-prep.bundle
+    displayName: Restore deploy-prep commit
 
   - bash: ./zola build -o $(build.artifactStagingDirectory)/website
     displayName: "Build site with Zola"
@@ -52,24 +40,37 @@ jobs:
       artifactName: website
       targetPath: $(build.artifactStagingDirectory)/website
 
-  # At some point we might add post-build analytics steps here
+  # Our one post-build analytics step happens here. If we had more steps, I
+  # think that we'd probably want to add another pipeline stage to generate the
+  # metadata based on the built artifact.
 
   - bash: |
       set -xeuo pipefail
-      git add content
-      cargo run -- commit
-      git show
-    displayName: "deploytool commit"
 
-  - bash: |
-      set -xeuo pipefail
-      artifact_dir="$(build.artifactStagingDirectory)/git-deploy"
+      chmod +x $(pipeline.workspace)/deploytool/deploytool
+
+      if [ -z "$GITHUB_TOKEN" ] ; then
+        echo "Not commenting - unauthorized"
+        pr_arg=
+      elif [ $(build.reason) = PullRequest ] ; then
+        pr_arg="--pr-number $(system.pullRequest.pullRequestNumber)"
+      else
+        pr_arg=
+      fi
+
+      artifact_dir="$(build.artifactStagingDirectory)/size-report"
       mkdir -p "$artifact_dir"
-      git bundle create "$artifact_dir/deploy.bundle" origin/main..HEAD
-    displayName: "Bundle deploy commit"
 
-  - task: PublishPipelineArtifact@1
-    displayName: Publish git bundle artifact
+      $(pipeline.workspace)/deploytool/deploytool size-report \
+        $pr_arg \
+        --content-path $(build.artifactStagingDirectory)/website \
+        --result-path "$artifact_dir/_output_treesize.txt"
+    displayName: "deploytool size-report"
+    env:
+      GITHUB_TOKEN: $(GITHUB_TOKEN)
+
+  - task: PublishPipelineArtifact@0
+    displayName: Store size-report pipeline artifact
     inputs:
-      artifactName: git-deploy
-      targetPath: $(build.artifactStagingDirectory)/git-deploy
+      artifactName: size-report
+      targetPath: $(build.artifactStagingDirectory)/size-report
