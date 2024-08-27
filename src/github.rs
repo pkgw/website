@@ -56,7 +56,7 @@ impl GitHubClient {
             .post(url)
             .header(reqwest::header::ACCEPT, "application/vnd.github+json")
             .header(
-                reqwest::header::HeaderName::from_static("X-GitHub-Api-Version"),
+                reqwest::header::HeaderName::from_static("x-github-api-version"),
                 "2022-11-28",
             )
             .body(json::stringify(payload))
