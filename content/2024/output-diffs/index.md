@@ -78,12 +78,18 @@ Just now I [added a demonstration of the “output diff” technique][pr10]. My
 website build pipeline now computes the total on-disk size of the built website,
 and if I submit a change as a pull request — [like the one for this very
 post][pr11] — it will compare this number against the previous size and report
-the change in a GitHub comment on the pull request. Once again, this isn’t
+the change in [a GitHub comment on the pull request][rc]. Once again, this isn’t
 incredibly important in this particular application, but I’m really happy to be
-able to demonstrate the workflow.
+able to demonstrate the workflow:
 
 [pr10]: https://github.com/pkgw/website/pull/10
 [pr11]: https://github.com/pkgw/website/pull/11
+[rc]: https://github.com/pkgw/website/pull/11#issuecomment-2313186048
+
+{% relfig(path="sample-comment.jpg") %}
+The numbers in the comment are now outdated because I added this screenshot to
+this post.
+{% end %}
 
 The process works by comparing the built size with the contents of a file named
 `_output_treesize.txt` stored within [the `deploy` branch][db] of [the repo for
@@ -95,28 +101,27 @@ to compare its value with the updated number.
 [db]: https://github.com/pkgw/website/tree/deploy
 [wr]: https://github.com/pkgw/website/
 
-You could almost do all of this in shell script, but I wrote [some Rust
-code][sr] to do it so that I could also expose the size-change report as a
-GitHub comment. Last week I wrote about implementing this feedback as a [GitHub
-“check run”][gcr], but doing that would require setting up a full [“GitHub
-App”][gha], which looks like a lot heavier process to undertake. For this
-demonstration, I’m keeping things as simple as possible, and so I’m avoiding the
-app. Using comments for this reporting is a bit kludgey: for instance, as I was
-developing the functionality, the pull request [acquired a series of redundant
-comments][repsz] because I had to keep on retrying the pipeline. But it’s
-basically one easy API call to make the comment, and it surfaces the reporting
-results in a nice prominent way. I considered using the [GitHub “commit status”
-API][gcsa], which likewise doesn’t need a full-fledged App, but it’s designed
-for binary pass/fail tests. As I wrote above, I think it’s important to
-recognize that output diffs are analysis tools to help human reviewers; their
-results can’t generically be reduced to binary pass/fail outcomes.
+You could probably all of this in shell script, but I wrote [some Rust code][sr]
+to do it since I already had the framework in place. Last week I wrote about
+implementing the feedback as a [GitHub “check run”][gcr], but doing that would
+require setting up a full [“GitHub App”][gha], which looks like a pretty heavy
+process. For this demonstration, I’m keeping things as simple as possible, and
+so I’m avoiding the app. Using comments for the reporting is a bit kludgey: for
+instance, as I was developing the functionality, the pull request [acquired a
+series of redundant comments][repsz] because I had to keep on retrying the
+pipeline. But it’s basically one easy API call to make the comment, and it
+surfaces the reporting results in a nice prominent way. I considered using the
+[GitHub “commit status” API][gcsa], which likewise doesn’t need a full-fledged
+App, but it’s designed for binary pass/fail tests. As I wrote above, I think
+it’s important to recognize that output diffs are, generally, analysis tools to
+help human reviewers; their results shoulnd’t always be reduced to binary
+pass/fail outcomes.
 
-[sr]: https://github.com/pkgw/website/blob/deploy/src/size_report.rs
+[sr]: https://github.com/pkgw/website/blob/main/src/size_report.rs
 [gcr]: https://docs.github.com/en/rest/checks/runs?apiVersion=2022-11-28
 [gha]: https://docs.github.com/en/apps/overview
 [repsz]: https://github.com/pkgw/website/pull/10#issuecomment-2313024854
 [gcsa]: https://docs.github.com/en/rest/commits/statuses?apiVersion=2022-11-28
-
 
 I did realize, however, that in a non-demonstration context, you’ll probably
 need to go with a full-strength app, or at least a comparable heavyweight
@@ -135,3 +140,17 @@ report the output-diff results into the PR safely.
 [mpr]: https://nathandavison.com/blog/shaking-secrets-out-of-circleci-builds
 [tci]: https://docs.travis-ci.com/user/pull-requests/#pull-requests-and-security-restrictions
 
+I have to acknowledge that all of this is, well, complicated. It gets a bit
+better as you get more familiar with the guts of your CI tools, but it’s true
+that there are a lot of moving parts — not only did I have to write [a custom
+Rust tool][dt] to do some Git shenanigans, but I had to put together a
+[multi-stage CI pipeline][pl] to execute the necessary operations. ([Here are
+the logs][apl] for the first public draft of this post, although they’ll get
+deleted off of Azure eventually.) For some use cases, I think it’s definitely
+worth setting everything up, full stop. But what I’ve found with Cranko is that
+once you have a demo like this one put together, it becomes way easier to adopt
+the workflows in smaller projects too — copy-paste can be a wonderful thing!
+
+[dt]: https://github.com/pkgw/website/tree/main/src
+[pl]: https://github.com/pkgw/website/tree/main/ci
+[apl]: https://dev.azure.com/pkgw/Misc/_build/results?buildId=1545&view=results
