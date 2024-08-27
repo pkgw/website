@@ -74,7 +74,7 @@ impl Command for SizeReportArgs {
                 ["path `{}` should correspond to a Git blob but does not", path]
             );
             let content = std::str::from_utf8(blob.content())?;
-            str::parse::<u64>(content)?
+            str::parse::<u64>(content.trim())?
         } else {
             info!("no file `{}` in the deploy tree; defaulting to 0", path);
             0
