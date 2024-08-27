@@ -18,3 +18,6 @@ zola serve
 ```
 
 to serve it locally.
+
+<!-- Newsletter: https://buttondown.com/emails/new -->
+<!-- Toot: https://mastodon.world/home -->
