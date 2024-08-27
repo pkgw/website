@@ -47,6 +47,8 @@ jobs:
   - bash: |
       set -xeuo pipefail
 
+      chmod +x $(pipeline.workspace)/deploytool/deploytool
+
       artifact_dir="$(build.artifactStagingDirectory)/size-report"
       mkdir -p "$artifact_dir"
 
