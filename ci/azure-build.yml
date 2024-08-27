@@ -73,3 +73,24 @@ jobs:
     inputs:
       artifactName: git-deploy
       targetPath: $(build.artifactStagingDirectory)/git-deploy
+
+
+
+- job: vartest
+  pool:
+    vmImage: ubuntu-latest
+
+  steps:
+
+  - bash: |
+      set -x
+      echo "SCU: $(system.collectionUri)"
+      echo "TP: $(system.teamProject)"
+      echo "BID: $(build.buildId)"
+      echo "JID: $(system.jobId)"
+      echo "DID: $(system.definitionId)"
+      echo "CID: $(system.collectionId)"
+      echo "PID: $(system.planId)"
+      echo "TID: $(system.timelineId)"
+      echo "TPID: $(system.teamProjectId)"
+    displayName: Print stuff
