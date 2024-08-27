@@ -37,8 +37,8 @@ pub struct SizeReportArgs {
     )]
     force: bool,
 
-    #[arg(long, help = "The number of this pull request")]
-    pr_number: usize,
+    #[arg(long, help = "The number of this pull request, if this is a PR build")]
+    pr_number: Option<usize>,
 
     #[arg(long, help = "The location of the on-disk rendered website content")]
     content_path: PathBuf,
@@ -95,7 +95,7 @@ impl Command for SizeReportArgs {
             cur_size += md.len();
         }
 
-        // Report as a GitHub comment.
+        // Report, as a GitHub comment if there's an associated pull request
 
         let prev_unit = Byte::from_u64(prev_size).get_appropriate_unit(UnitType::Binary);
         let cur_unit = Byte::from_u64(cur_size).get_appropriate_unit(UnitType::Binary);
@@ -129,10 +129,14 @@ impl Command for SizeReportArgs {
             prev_unit, cur_unit, size_cmp
         );
 
-        let ghcl = GitHubClient::new()?;
-        let mut http = ghcl.make_blocking_client()?;
+        if let Some(pr_number) = self.pr_number {
+            let ghcl = GitHubClient::new()?;
+            let mut http = ghcl.make_blocking_client()?;
 
-        ghcl.create_comment(REPO_SLUG, self.pr_number, markdown, &mut http)?;
+            ghcl.create_comment(REPO_SLUG, pr_number, markdown, &mut http)?;
+        } else {
+            println!("{}", markdown);
+        }
 
         // Save the new metadata. We don't write directly into the local
         // repository since it is possible that a variety of pieces of metadata

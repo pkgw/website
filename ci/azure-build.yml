@@ -49,11 +49,20 @@ jobs:
 
       chmod +x $(pipeline.workspace)/deploytool/deploytool
 
+      if [ -z "$GITHUB_TOKEN" ] ; then
+        echo "Not commenting - unauthorized"
+        pr_arg=
+      elif [ $(build.reason) = PullRequest ] ; then
+        pr_arg="--pr-number $(system.pullRequest.pullRequestNumber)"
+      else
+        pr_arg=
+      fi
+
       artifact_dir="$(build.artifactStagingDirectory)/size-report"
       mkdir -p "$artifact_dir"
 
       $(pipeline.workspace)/deploytool/deploytool size-report \
-        --pr-number $(system.pullRequest.pullRequestNumber) \
+        $pr_arg \
         --content-path $(build.artifactStagingDirectory)/website \
         --result-path "$artifact_dir/_output_treesize.txt"
     displayName: "deploytool size-report"

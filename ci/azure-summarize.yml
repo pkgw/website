@@ -27,8 +27,11 @@ jobs:
 
       cp $(pipeline.workspace)/size-report/_output_treesize.txt .
 
+      export GIT_AUTHOR_NAME=deploytool
+      export GIT_AUTHOR_EMAIL=deploytool@devnull
+
       git add .
-      git commit --allow-empty --author="deploytool <deploytool@devnull>" -m "Ingest post-build metadata"
+      git commit --allow-empty -m "Ingest post-build metadata"
       git show
     displayName: "Commit post-build metadata"
 
