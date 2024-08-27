@@ -1,0 +1,40 @@
+jobs:
+
+- job: summarize
+  pool:
+    vmImage: ubuntu-latest
+
+  steps:
+
+  - download: current
+
+  - checkout: self
+    fetchDepth: 0
+
+  - bash: |
+      git switch -c deploy
+      git pull --ff-only $(pipeline.workspace)/git-deploy-prep/deploy-prep.bundle
+    displayName: Restore deploy-prep commit
+
+  - bash: |
+      set -xeuo pipefail
+
+      cp $(pipeline.workspace)/size-report/_output_treesize.txt .
+
+      git add .
+      git commit --author="deploytool <deploytool@devnull>" -m "Ingest post-build metadata"
+      git show
+    displayName: "Commit post-build metadata"
+
+  - bash: |
+      set -xeuo pipefail
+      artifact_dir="$(build.artifactStagingDirectory)/git-deploy-post"
+      mkdir -p "$artifact_dir"
+      git bundle create "$artifact_dir/deploy-post.bundle" origin/main..HEAD
+    displayName: "Bundle deploy-post commit"
+
+  - task: PublishPipelineArtifact@1
+    displayName: Publish git bundle artifact
+    inputs:
+      artifactName: git-deploy-post
+      targetPath: $(build.artifactStagingDirectory)/git-deploy-post

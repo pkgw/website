@@ -63,8 +63,8 @@ jobs:
 
   - bash: |
       git switch -c deploy
-      git pull --ff-only $(pipeline.workspace)/git-deploy/deploy.bundle
-    displayName: Restore deploy commit
+      git pull --ff-only $(pipeline.workspace)/git-deploy-post/deploy-post.bundle
+    displayName: Restore deploy-post commit
 
   - bash: |
       set -euo pipefail
