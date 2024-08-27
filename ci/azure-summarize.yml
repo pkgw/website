@@ -1,3 +1,9 @@
+# As-is, this stage doesn't make a ton of sense, but in principle we could have
+# a bunch of build steps running in parallel. Once they all complete and are
+# successful, we need to gather all of their outputs and commit them to the
+# `deploy` branch in one chunk, so we need a separate stage to act as the
+# "gather" step that only runs once all of the build steps complete.
+
 jobs:
 
 - job: summarize
@@ -22,7 +28,7 @@ jobs:
       cp $(pipeline.workspace)/size-report/_output_treesize.txt .
 
       git add .
-      git commit --author="deploytool <deploytool@devnull>" -m "Ingest post-build metadata"
+      git commit --allow-empty --author="deploytool <deploytool@devnull>" -m "Ingest post-build metadata"
       git show
     displayName: "Commit post-build metadata"
 

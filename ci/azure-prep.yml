@@ -64,4 +64,4 @@ jobs:
     displayName: Publish deploytool binary artifact
     inputs:
       targetPath: '$(build.artifactStagingDirectory)/deploytool'
-      artifactName: deploytool-binary
+      artifactName: deploytool
