@@ -102,12 +102,12 @@ impl Command for SizeReportArgs {
 
         let size_cmp = if cur_size > prev_size {
             format!(
-                "increase of {}",
+                "increase of {:.2}",
                 Byte::from_u64(cur_size - prev_size).get_appropriate_unit(UnitType::Binary)
             )
         } else if cur_size < prev_size {
             format!(
-                "decrease of {}",
+                "decrease of {:.2}",
                 Byte::from_u64(prev_size - cur_size).get_appropriate_unit(UnitType::Binary)
             )
         } else {
@@ -122,8 +122,8 @@ impl Command for SizeReportArgs {
 \n\
             | When  |  Size |\n\
             | ----  |  ---- |\n\
-            | Previous | {} |\n\
-            | Current | {} |\n\
+            | Previous | {:.2} |\n\
+            | Current | {:.2} |\n\
             | Change | **{}** |\n\
         ",
             prev_unit, cur_unit, size_cmp

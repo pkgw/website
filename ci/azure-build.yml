@@ -59,3 +59,9 @@ jobs:
     displayName: "deploytool size-report"
     env:
       GITHUB_TOKEN: $(GITHUB_TOKEN)
+
+  - task: PublishPipelineArtifact@0
+    displayName: Store size-report pipeline artifact
+    inputs:
+      artifactName: size-report
+      targetPath: $(build.artifactStagingDirectory)/size-report
