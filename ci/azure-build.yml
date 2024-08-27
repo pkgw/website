@@ -108,3 +108,41 @@ jobs:
       echo "BSN: $(build.sourceBranchName)"
       echo "BRU: $(build.repository.uri)"
     displayName: Print other
+
+
+
+
+- job: commenttest
+  pool:
+    vmImage: ubuntu-latest
+
+  # XXXX
+  variables:
+  - group: Deployment Credentials
+
+  steps:
+
+  - checkout: self
+    fetchDepth: 0
+
+  - bash: |
+      set -e
+      rustup set profile minimal
+      rustup component remove --toolchain=$TOOLCHAIN rust-docs || echo "already removed"
+      rustup update --no-self-update $TOOLCHAIN
+      rustup default $TOOLCHAIN
+      # Log versions
+      set -ex
+      rustup -V
+      rustc -Vv
+      cargo -V
+    displayName: Set up Rust
+
+  # We save about 30s by building in debug rather than release mode.
+  - bash: cargo build
+    displayName: "Build deploytool"
+
+  - bash: cargo run -- size-report --pr-number $(system.pullRequest.pullRequestNumber)
+    displayName: "deploytool size-report"
+    env:
+      GITHUB_TOKEN: $(GITHUB_TOKEN)
