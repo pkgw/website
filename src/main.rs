@@ -12,7 +12,9 @@ use std::process;
 mod app;
 mod apply;
 mod commit;
+mod env;
 mod errors;
+mod github;
 mod logger;
 mod repository;
 
