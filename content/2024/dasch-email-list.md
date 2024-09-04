@@ -4,7 +4,7 @@ title = "Sign Up for the New DASCH Email List (Maybe)"
 +++
 
 I've created [a new email list for DASCH announcements and discussion][ml]. All
-users of [DASCH] data are encouraged to [subscribe][ml].
+scientific users of [DASCH] data are encouraged to [subscribe][ml].
 
 [ml]: https://gaggle.email/join/dasch@gaggle.email
 [DASCH]: https://dasch.cfa.harvard.edu/
