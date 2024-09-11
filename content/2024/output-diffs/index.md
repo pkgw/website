@@ -114,7 +114,7 @@ surfaces the reporting results in a nice prominent way. I considered using the
 [GitHub “commit status” API][gcsa], which likewise doesn’t need a full-fledged
 App, but it’s designed for binary pass/fail tests. As I wrote above, I think
 it’s important to recognize that output diffs are, generally, analysis tools to
-help human reviewers; their results shoulnd’t always be reduced to binary
+help human reviewers; their results shouldn’t always be reduced to binary
 pass/fail outcomes.
 
 [sr]: https://github.com/pkgw/website/blob/main/src/size_report.rs
