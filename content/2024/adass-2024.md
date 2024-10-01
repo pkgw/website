@@ -5,14 +5,18 @@ title = "Presenting at ADASS 2024"
 
 A quick public service announcement: I’ll be attending and presenting at the
 [ADASS 2024][adass2024] (aka ADASS 34) meeting in November! I have an accepted
-contributed talk entitled **DASCH: Bringing 100+ Years of Photographic Data into
-the 21st Century and Beyond**.
+contributed talk entitled [**DASCH: Bringing 100+ Years of Photographic Data into
+the 21st Century and Beyond**][talk].
 
 [adass2024]: https://www.um.edu.mt/events/adass2024/
+[talk]: https://pretalx.com/adass2024/talk/7R7DGG/
 
 <!-- more -->
 
-The precise time of the talk hasn’t been scheduled yet. The abstract is:
+**Update (Oct. 1):** The talk is currently scheduled for Tuesday, Nov. 12th, at
+4:15 PM local time.
+
+The abstract is:
 
 > The Harvard College Observatory was the preeminent astronomical data center of
 > the early 20th century: it gathered and archived an enormous collection of glass
