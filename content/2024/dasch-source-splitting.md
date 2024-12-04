@@ -12,8 +12,8 @@ analysis notebooks, a new tutorial notebook, and associated documentation
 updates.
 
 [DASCH]: https://dasch.cfa.harvard.edu/
-[*daschlab*]: https://dasch.cfa.harvard.edu/drnext/
-[sski]: https://dasch.cfa.harvard.edu/drnext/ki/source-splitting/
+[*daschlab*]: https://dasch.cfa.harvard.edu/dr7/
+[sski]: https://dasch.cfa.harvard.edu/dr7/ki/source-splitting/
 
 <!-- more -->
 
@@ -116,7 +116,7 @@ lightcurves to merge, and how to actually do the merge. In this case, the number
 of usable lightcurve points goes from about 2,000 (associated with a single
 refcat source) to about 2,500 (merged from ten separate lightcurves).
 
-[tut]:https://dasch.cfa.harvard.edu/drnext/#tutorials
+[tut]:https://dasch.cfa.harvard.edu/dr7/#tutorials
 [HD 5501]: http://simbad.u-strasbg.fr/simbad/sim-id?protocol=html&Ident=hd%205501&NbIdent=1&Radius=2&Radius.unit=arcmin
 
 Of course, this is one of those situations where software support is nice, but
