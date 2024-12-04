@@ -40,7 +40,7 @@ much guaranteed to be pretty good. So, if the DASCH solutions include bogus
 ones, that means that the pipeline is starting with a decent Astrometry.Net
 solution and breaking it.
 
-[iaki]: https://dasch.cfa.harvard.edu/drnext/ki/incorrect-astrometry/
+[iaki]: https://dasch.cfa.harvard.edu/dr7/ki/incorrect-astrometry/
 [Astrometry.Net]: https://astrometry.net/
 
 I dug into this issue and discovered that it seemed like the primary culprit was

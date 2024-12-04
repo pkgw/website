@@ -13,7 +13,7 @@ Astrophysics][da] mailing list at the end of the day yesterday:
 I'm pleased to report that you can now get early, preview access to the DASCH
 Data Release 7 (DR7) data via the [daschlab][dl] Python package.
 
-[dl]: https://dasch.cfa.harvard.edu/drnext/install-daschlab/
+[dl]: https://dasch.cfa.harvard.edu/dr7/install-daschlab/
 
 DR7 will contain images of 428,408 photographic plates from the Harvard
 collection. Out of those, 414,748 have astrometric solutions; 361,689 have
@@ -46,7 +46,7 @@ This preview access comes with some important limitations to be aware of:
   to work with DASCH data in another framework, however, the underlying data
   access APIs are all quite simple JSON exchanges.
 
-[docs]: https://dasch.cfa.harvard.edu/drnext/
+[docs]: https://dasch.cfa.harvard.edu/dr7/
 [sgmos]: https://starglass.cfa.harvard.edu/docs/api/mosaics.html
 
 To start exploring the DR7 early preview data:
