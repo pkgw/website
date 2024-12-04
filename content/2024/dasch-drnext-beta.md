@@ -8,9 +8,13 @@ of a new set of resources for astronomers. These are collected under the [DASCH
 DRnext] moniker and are now ready to be checked out.
 
 [DASCH]: https://dasch.cfa.harvard.edu/
-[DASCH DRnext]: https://dasch.cfa.harvard.edu/drnext/
+[DASCH DRnext]: https://dasch.cfa.harvard.edu/dr7/
 
 <!-- more -->
+
+**Update (December 2024): The DRnext materials have been relabeled to “DR7” in
+advance of the upcoming DR7 release. I’ve updated the links here to prevent
+breakage, but not any of the text.**
 
 The fact underlying the [DRnext] designation is that while DASCH has
 historically had a series of “data releases” (DRs), they weren’t really releases
@@ -22,7 +26,7 @@ and the data processing gets refined, so we’re unable to provide locked-in
 artifacts. Historically, the DASCH DRs were basically about lifting restrictions
 on public access to certain portions of the sky.
 
-[DRnext]: https://dasch.cfa.harvard.edu/drnext/
+[DRnext]: https://dasch.cfa.harvard.edu/dr7/
 [SDSS DR12]: https://skyserver.sdss.org/dr12/
 
 It would be nice to be able to provide traditional, immutable DRs, but with the
@@ -42,12 +46,12 @@ times](@/2024/fun-python-filtering-pattern.md). In support of this, we now have:
 - [Python API reference docs](https://daschlab.readthedocs.io/) (which I also mentioned earlier)
 - [A tutorial slideshow][rycnc] that lets you work through
   the notebook shown in the video, via [a MyBinder notebook][rycncbinder]
-- [The beginnings of a lightcurve reduction cookbook](https://dasch.cfa.harvard.edu/drnext/reduce-lightcurve/)
+- [The beginnings of a lightcurve reduction cookbook](https://dasch.cfa.harvard.edu/dr7/reduce-lightcurve/)
   based on *daschlab* (although there's no reason you couldn’t use the same techniques in
   a different data-analysis system)
-- [Instructions for installing *daschlab* locally](https://dasch.cfa.harvard.edu/drnext/install-daschlab/)
+- [Instructions for installing *daschlab* locally](https://dasch.cfa.harvard.edu/dr7/install-daschlab/)
 
-[rycnc]: https://dasch.cfa.harvard.edu/drnext/rycnc/
+[rycnc]: https://dasch.cfa.harvard.edu/dr7/rycnc/
 [rycncbinder]: https://mybinder.org/v2/gh/pkgw/daschlab/HEAD?labpath=notebooks%2FRY+Cnc.ipynb
 
 Integrated with this are several other new resources:
@@ -60,10 +64,10 @@ Integrated with this are several other new resources:
   where appropriate
 - Reorganizing the existing material to hopefully make it more manageable
 
-[intro]: https://dasch.cfa.harvard.edu/drnext/introduction/
+[intro]: https://dasch.cfa.harvard.edu/dr7/introduction/
 [ql]: https://mybinder.org/v2/gh/pkgw/daschlab/HEAD?labpath=notebooks%2FQuicklook.ipynb
 [cannonlc]: http://dasch.rc.fas.harvard.edu/lightcurve.php
-[lccols]: https://dasch.cfa.harvard.edu/drnext/lightcurve-columns/
+[lccols]: https://dasch.cfa.harvard.edu/dr7/lightcurve-columns/
 [StarGlass]: https://starglass.cfa.harvard.edu/
 
 If you look at the [DRnext landing page][DRnext], I have very plainly used [the
