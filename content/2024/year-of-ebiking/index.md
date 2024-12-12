@@ -505,7 +505,7 @@ Having figured all of that out, I’ve found it kind of annoying to get my brake
 pads well-aligned. You need to align the brake assembly very carefully relative
 to the brake rotor, and make sure to protect the rotor well. It’s tedious.
 
-I did have one much more significnat issue. At around 900 miles, my freewheel
+I did have one much more significant issue. At around 900 miles, my freewheel
 ratchet stopped working properly, probably because there was too much gunk
 inside the freewheel assembly. ([Here are some nice graphics][freewheel] if
 you’re interested in visualizing the mechanicals.) This had the rather alarming
@@ -541,7 +541,7 @@ the chain replaced in a day for around $100.
 
 If this kind of thing happens every thousand miles, it will be pretty annoying.
 I have no idea whether a failure at this mileage is in the zone of “Yeah, makes
-sense“ or “Wow, that should have lasted much longer.” Maybe it’ll help if I’m
+sense” or “Wow, that should have lasted much longer.” Maybe it’ll help if I’m
 better about keeping my chain clean from here on out. I have a bit better sense
 of what it feels like as the freewheel mechanism degrades (e.g., with the new
 hub, spinning the pedals backwards is *so* much smoother than it was before the
