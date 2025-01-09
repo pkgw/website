@@ -104,16 +104,20 @@ time-domain studies of ultracool dwarfs, gravitational-wave event counterparts,
 and other variable phenomena. From 2018 to 2022 I held a joint appointment as
 the Innovation Scientist of the CfA and the [American Astronomy
 Society](https://aas.org/) (AAS), and as Director of the [WorldWide
-Telescope](https://worldwidetelescope.org/) project. Since 2023 I’ve been the
-scientific and technical lead for [DASCH](https://dasch.cfa.harvard.edu/).
+Telescope](https://worldwidetelescope.org/) project. In 2023–2024 I was the
+scientific and technical lead for [DASCH](https://dasch.cfa.harvard.edu/) and
+prepared [DASCH Data Release 7](https://dasch.cfa.harvard.edu/dr7/). Since 2025
+I have been the Technical Lead for the [IAU Minor Planet
+Center](https://minorplanetcenter.net/).
 
 For lots more, see [my CV](@/cv.md).
 
 
 # Contact
 
-My CfA office is **M-303** at [160 Concord](https://goo.gl/maps/4x5r67fTQDM2).
-My work email address is
+My CfA office is **C-311C** at [60 Garden
+Street](https://maps.app.goo.gl/Ut8rbJnpvMU6bs4X8). It used to belong to Annie
+Jump Cannon. My work email address is
 [pwilliams@cfa.harvard.edu](mailto:pwilliams@cfa.harvard.edu) (though it just
 forwards to my personal address, [peter@newton.cx](mailto:peter@newton.cx)). I
 can also be reached on Mastodon as
