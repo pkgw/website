@@ -1,35 +1,40 @@
 +++
 date = 2025-04-02T00:00:00-04:00
-title = "“Generic” GitHub Packages"
+title = "“Generic” Artifacts in GitHub Packages"
 +++
 
 Service blogging today! For a while I’ve been pondering if it would be possible
-to use the [GitHub Packages][gp] service to host “generic” packages: namely,
-arbitrary binary payloads. Motivated by some of the my current [MPC] projects, I
-sat down this week to look into the topic more deeply than I have before. Lo and
-behold, you can do this! And it isn’t even (that big of) a hack.
+to use the [GitHub Packages][gp] service to host “generic” files: namely,
+arbitrary binary artifacts that aren’t necessarily NPM packages, Docker images,
+etc. Motivated by some of the my current [MPC] projects, I sat down this week to
+look into the topic more deeply than I have before. Lo and behold, you can do
+this! And it isn’t even (that big of) a hack.
 
 [gp]: https://docs.github.com/en/packages
 [MPC]: https://minorplanetcenter.net/
 
 <!-- more -->
 
-**Warning:** *I realized that I wrote this blog like some damn internet
+**Warning:** *I realized that I wrote this blog like some ridiculous internet
 casserole recipe. Skip down to the code blocks at the end if you just want to
-see how to push and pull packages.*
+see what to do.*
 
 Back when I was a lad, installing software was an adventure: for every program
-you needed, you went to its homepage and downloaded whatever file(s) its authors
-provided. (OK, well, actually, I remember the days of installing software from
-stacks of floppy disks, but we're not going back *that* far.) As the internet
-became a certifiable Thing, things started agglomerating: [CPAN] and [CTAN];
-Linux distributions where all of your programs were packaged up and hosted
-centrally; NPM backed by [npmjs.com]; [PyPI] for Python; and so on.
+you needed, you dug up its website, found the Downloads page, pulled whatever
+file(s) the authors provided, and figured out how to actually get the damn thing
+installed. (OK, well, actually, I remember the days of installing software from
+stacks of floppy disks, but we're not going back *that* far.) From the very
+earliest days of the internet, though, people saw the value of pulling files
+into shared repositories: [CPAN] and [CTAN] were among the first; then we had
+Linux distributions that packaged up and hosted amazingly wide-ranging
+collections of software. But I feel like it took a while for people to
+appreciate just how valuable these systems could be; I remember being struck by
+the remarkably tight integration between the `npm` tool and [npmjs.com] when
+they launched, which was 2010.
 
 [CPAN]: https://www.cpan.org/
 [CTAN]: https://ctan.org/
 [npmjs.com]: https://www.npmjs.com/
-[PyPI]: https://pypi.org/
 
 Nowadays, you would be foolish to launch a new language or framework *without*
 some kind of central package registry. But we're actually seeing a trend towards
@@ -49,16 +54,16 @@ well.
 
 (As a side note, this emergent flexibility is a testament to the brilliant
 simplicity of the Internet’s architecture! None of this would be possible
-without the URL.)
+without the URL. Good job, team.)
 
 In 2019, GitHub joined the fray with its own package hosting infrastructure:
 [GitHub Packages][gp] (GHP). While a lot of people might only be familiar with
 GHP through the [GitHub Container Registry][ghcr], the subset of the service
 that deals specifically with Docker containers, it also supports NPM, RubyGems,
-Maven, Gradle, and NuGet. You can think of all of these systems as “package
-registries” that have a lot in common under the hood: they're all basically
-dealing with versioned sets of binary artifacts, and you can imagine building a
-common infrastructure for hosting, access control, and more.
+Maven, Gradle, and NuGet. You can see how all of these systems might have a lot
+in common under the hood: they're all basically dealing with versioned sets of
+binary artifacts, and you can imagine building a common infrastructure for
+naming, hosting, access control, and more.
 
 [ghcr]: https://github.blog/news-insights/product-news/github-packages-container-registry-generally-available/
 
@@ -77,20 +82,19 @@ of the other packaging systems supported by GHP.
 Can we do better? Thankfully, we can.
 
 The short story is that nowadays you can use the GitHub Container Registry to
-manage generic packages in a pretty clean way. I won’t pretend to fully
-understand the history, but as best I can gather, the [Open Container
-Initiative][oci] has driven the development of standards and tools to allow
-container registries to handle arbitrary file formats, and a side benefit is
-that we can (ab)use that support to leverage these registries even if our
-binaries don’t correspond to what we would normally think of as “container
-images”.
+manage generic packages in a pretty clean way. I’m not familiar with the
+detailed history, but as best I can gather, the [Open Container Initiative][oci]
+has driven the development of standards and tools to allow container registries
+to handle arbitrary file formats, and a side benefit is that we can (ab)use that
+support to leverage these registries even if our binaries don’t correspond to
+what we would normally think of as “container images”.
 
 [oci]: https://opencontainers.org/
 
 In particular, there’s a tool called [`oras`] that can talk to GHCR in a
-“generic“ way rather than a “Docker-specific” way. (Based on the title of its
-webpage, ORAS stands for OCI Registry As Storage, FWIW.) With this tool, it’s
-quite straightforward to deal with generic packages.
+“generic“ way rather than a “Docker-specific” way. (It seems that ORAS stands
+for OCI Registry As Storage, based on the title of its webpage.) With this tool,
+it’s quite straightforward to deal with generic packages.
 
 [`oras`]: https://oras.land/
 
@@ -115,11 +119,11 @@ GHCR in a [GitHub Actions][gha] workflow, all you need is the following:
 ```
 
 It’s basically the same thing as pushing with the `docker` CLI, except the
-artifact data come from a file on disk, and you need to specify a "media type"
-for your artifact. If you need your artifact to be consumable by other tools
-(say, Docker), you need to set up a variety of other metadata, but if all you
-care about is pushing and pulling bytes, you can skip that, make up a
-meaningless media type, and call it a day.
+artifact data come from a file on disk, and you need to specify an associated
+"media type". If you need your artifact to be consumable by third-party systems
+(say, Docker), you’re going to need to set up a variety of other metadata too.
+But if all you care about is pushing and pulling bytes, you can skip that, make
+up a meaningless media type, and call it a day.
 
 To retrieve your package later, it's exactly what you would hope:
 
