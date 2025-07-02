@@ -2,10 +2,9 @@ base_url = "https://newton.cx/~peter/"
 title = "PKGW"
 default_language = "en"
 compile_sass = true
-generate_feed = true
-feed_filename = "rss.xml"
+generate_feeds = true
+feed_filenames = ["rss.xml"]
 build_search_index = false
-check_external_links = false
 
 [markdown]
 highlight_code = true
