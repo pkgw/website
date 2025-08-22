@@ -133,3 +133,23 @@ tricky, although maybe most people would be satisfied with links to Google
 Slides or something along those lines.
 
 [daschdoc]: https://dasch.cfa.harvard.edu/dr7/introduction/
+
+Attention to authorship barriers — how hard or easy is it to just sit down and
+write something? — is looming large in my thinking as a result of these
+interviews. One interviewee was adamant: write docs using whatever tool you have
+at hand; the best doc is one that actually exists. Others were focused on
+getting the right tooling into place: setting up CI to run doctests (using a
+tool like [Sybil]) ensuring that they never break, or to automatically execute
+Jupyter notebooks and integrate them into a Sphinx tree. Both of these attitudes
+have their appeal, but there’s definitely a tension between them.
+
+[Sybil]: https://sybil.readthedocs.io/
+
+I’m not quite sure how to navigate this tension in the resource that I’ll be
+creating. My personal bias ought to be pretty clear: whatever the opposite of
+quick-and-dirty is, that’s usually me. Turns out, though, that most people
+aren’t like me. I’d like to think that my resource can offer people some
+cookbook recipes to help them get the benefits of some of the more complex tools
+(it’s good to verify that your example code actually runs!) without getting
+mired in a slog of Sphinx configuration, but I’ll have to be careful not to go
+overboard.
