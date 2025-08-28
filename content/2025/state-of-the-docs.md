@@ -153,3 +153,6 @@ cookbook recipes to help them get the benefits of some of the more complex tools
 (it’s good to verify that your example code actually runs!) without getting
 mired in a slog of Sphinx configuration, but I’ll have to be careful not to go
 overboard.
+
+*The work described in this post was supported by a [Better Scientific Software
+Fellowship](https://bssw.io/pages/bssw-fellowship-program)*.
