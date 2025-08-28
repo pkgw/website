@@ -36,10 +36,11 @@ exhaustive list of software that one could use.
 
 But that’s not all. I also wrote that I think it’s important to construe the
 word “tools” expansively. Sure, there are things that everyone would agree fits
-that definition: [Sphinx], [mdBook]. But what about **[Diátaxis]**, the “four
-kinds of docs” paradigm [that I’ve written about before][dtxs]? If we think of a
-“tool” as “something that helps us accomplish a goal”, then I would say that
-Diátaxis absolutely fits that definition. And that is indeed what I’m saying!
+that definition: **[Sphinx]**, **[mdBook]**. But what about **[Diátaxis]**, the
+“four kinds of docs” paradigm [that I’ve written about before][dtxs]? If we
+think of a “tool” as “something that helps us accomplish a goal”, then I would
+say that Diátaxis absolutely fits that definition. And that is indeed what I’m
+saying!
 
 [Sphinx]: https://www.sphinx-doc.org/en/master/
 [mdBook]: https://rust-lang.github.io/mdBook/
@@ -79,8 +80,8 @@ There are techniques associated with the IA field like **[card sorting]** and
 toolbox to sit alongside Diátaxis. I’ve found the website of the **[Nielsen
 Norman Group][nng]** to be surprisingly useful in learning about some of these
 concepts. While NNG is your typical corporate consultancy trying to make a buck
-off of you, I’ve found their online materials to be *much* more useful than the
-usual content-marketing drivel that you find on such sites. I’ve bought a few IA
+off of you, I’ve found their materials to be *much* more useful than the usual
+content-marketing drivel that you find on such sites. I’ve also bought a few IA
 books (including the aptly-named [*Information Architecture*][iabook]) and will
 see if any of them seem worth recommending to non-specialists.
 
@@ -90,7 +91,125 @@ see if any of them seem worth recommending to non-specialists.
 [nng]: https://www.nngroup.com/
 [iabook]: https://search.worldcat.org/title/86110226
 
+Turning back towards the traditionally-recognized software documentation tools,
+we can return to **[Sphinx]** as a starting point. One direction to go is to
+consider comparable tools aimed at other programming systems (granting that
+Sphinx is not actually Python-specific), which of course are numerous:
+**[tsdoc]** for TypeScript, **[rustdoc]** for Rust, **[Doxygen]**, **[godoc]**,
+**[Swagger]** for web APIs, **[rdoc]**, and on and on and on and on. It’s
+understandable that most modern programming languages deliver integrated
+documentation systems; each language has its own distinctive semantics that need
+to be captured in its API documentation framework. It’s also understandable that
+developers may be naturally inclined to try to author *all* of their
+documentation using these tools. But it’s worth pointing out explicitly that
+there’s no particular reason that a tool designed to document APIs in a certain
+language will be very good, or even adequate, for authoring general-purpose,
+non-API documentation.
 
+[tsdoc]: https://tsdoc.org/
+[rustdoc]: https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html
+[Doxygen]: https://doxygen.nl/
+[godoc]: https://go.dev/blog/godoc
+[Swagger]: https://swagger.io/
+[rdoc]: https://ruby.github.io/rdoc/
+
+A very good reason to try to stick with language-specific documentation tools,
+though, is that modern ones can pair with public services that allow you to host
+documentation online for free. **[ReadTheDocs]** is the standard for Python,
+**[docs.rs]** for Rust, and in a certain sense, **[CTAN]** for LaTeX are
+examples. If there’s one thing I’ve come to appreciate over the years, it’s that
+to first order no one wants to host their own content if they don’t have to, and
+in my experience services like these have been transformative for how scientific
+software is documented. That is, the universe of documentation tools to consider
+includes not just authoring tools, but also publishing platforms.
+
+[ReadTheDocs]: https://readthedocs.io/
+[docs.rs]: https://docs.rs/
+[CTAN]: https://www.ctan.org/
+
+Continuing along that thread, there are [*huge* numbers][ssgs] of static site
+generators out there that can (or could) be used to generate software
+documentation websites, as well as “* Pages” hosting services to host such sites
+for free. A random sub-sample from the former group: **[Jekyll]**, **[Hugo]**,
+**[Gatsby]**; I’m partial to **[Zola]** and have used it for docs;
+**[Docusaurus]**, **[MkDocs]**; **[mdBook]**, **[GitBook]**. In the latter
+group: **[GitHub Pages]**, **[GitLab Pages]**, **[Netlify]**; **[ReadTheDocs]**
+can effectively act as a static pages host; and all of the cloud providers make
+this drop-dead easy. This is a completely saturated market.
+
+[ssgs]: https://github.com/myles/awesome-static-generators
+[Jekyll]: https://jekyllrb.com/
+[Hugo]: https://gohugo.io/
+[Gatsby]: https://www.gatsbyjs.com/
+[Zola]: https://getzola.org/
+[Docusaurus]: https://docusaurus.io/
+[MkDocs]: https://www.mkdocs.org/
+[GitBook]: https://www.gitbook.com/
+[GitHub Pages]: https://pages.github.com/
+[GitLab Pages]: https://docs.github.com/en/pages
+[Netlify]: https://www.netlify.com/
+
+A market that’s a bit *less* saturated, somewhat to my surprise, is the one for
+wikis. This is probably because wiki software needs to implement both authoring
+and publishing (i.e., hosting) features, unlike the static-site case where
+there’s a clean separation between the two halves. But more and more I’ve come
+to feel that the basic wiki paradigm is a strong one — it works pretty well for
+[one of the top ten sites on the internet][wp] — and that it would be a great
+fit for a lot of use cases in the software-documentation. But for some reason
+wiki software tends to have a 90’s feel, and a 90’s look as well. I’m becoming
+more and more convinced that there’s a lot of untapped opportunity in this
+space. Anyway, some of the main wiki tools are: **[MediaWiki]**, **[GitHub’s
+wikis]**, **[DokuWiki]**, **[MoinMoin]**; you could put **[Confluence]** into
+this box too.
+
+[wp]: https://en.wikipedia.org/
+[MediaWiki]: https://www.mediawiki.org/
+[GitHub’s wikis]: https://docs.github.com/en/communities/documenting-your-project-with-wikis/about-wikis
+[DokuWiki]: https://www.dokuwiki.org/
+[MoinMoin]: https://moinmo.in/
+[Confluence]: https://www.atlassian.com/software/confluence
 
 *The work described in this post was supported by a [Better Scientific Software
 Fellowship](https://bssw.io/pages/bssw-fellowship-program)*.
+
+There are other platforms that, integrate authoring and publishing like wikis,
+but have modernized WYSIWYG styles. **[Curvenote]** (a commercial product) is
+specifically aimed at scientific authoring. **[PubPub]** is a unique open-source
+platform aimed at a more general academic audience (combining Google-Docs-like
+collaborative editing with features like DOI minting and citations), but sadly
+the project’s very existence is under threat due to the withdrawal of a major
+funder. PubPub is the only substantial noncommercial player in this space that
+I’m aware of, so I really hope something the worst doesn’t come to pass. (In
+case it’s not obvious, I’m focusing almost exclusively on open-source and
+noncommercial tools here; beyond generalized academic cheapness, I believe that
+there are profound reasons to prefer them in this domain.) I’m a bit suprised
+that **[Overleaf]**, the online collaborative LaTeX editor, hasn’t gotten into
+the publishing business, but as far as I can tell they haven’t yet.
+
+[Curvenote]: https://curvenote.com/
+[PubPub]: https://pubpub.org/
+[Overleaf]: https://www.overleaf.com/
+
+If you want to go a little bit farther, you can think of mainstream social media
+platforms as being on the same continuum. It’s not incorrect to describe
+**[YouTube]** as a platform for creating and publishing content, after all, and
+one can imagine scientific software projects where it would not be an
+unreasonable place to host (nontextual) documentation. Likewise, the bulk of the
+documentation regarding some software projects probably lives on
+**[StackExchange]** sites, in the form of answers to user questions. This line
+of thought brings us to publicly-visible “forum”-type systems (**[Discourse]**,
+**[phpBB]**) and more-synchronous “chat”-type platforms (**[Discord]**,
+**[Gitter]**, **[Zulip]**, **[Slack]**) which are usually less- or non-public.
+These platforms are not generally what people think of when they think of
+“documentation”, but I reiterate that it can very much happen that they end up
+hosting a significant or even dominant portion of the recorded information about
+a software project.
+
+[YouTube]: https://www.youtube.com/
+[StackExchange]: https://stackexchange.com/
+[Discourse]: https://www.discourse.org/
+[phpBB]: https://www.phpbb.com/
+[Discord]: https://discord.com/
+[Gitter]: https://gitter.im/
+[Zulip]: https://zulip.com/
+[Slack]: https://slack.com/
