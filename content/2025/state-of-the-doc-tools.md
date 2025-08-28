@@ -16,7 +16,7 @@ I’ve concluded that it’s really important to construe the words “documenta
 and “tools” expansively. That first word, “documentation”, might conjure up an
 image of a hefty spiral-bound manual. But that’s just one form-factor out of
 many possibilities. I think that more than ever, it should be emphasized that
-documentation can come in many shapes and sizes. YouTube videos?
+documentation can live in some surprising places. YouTube videos?
 [Sure](https://www.youtube.com/watch?v=HTXScEOwze8)! StackExchange Q&As?
 [Indeed](https://unix.stackexchange.com/questions/744675/resizing-an-lvm-storage-repository-in-xcp-ng).
 Discord chat groups? [Empirically,
@@ -77,13 +77,13 @@ The kinds of intellectual tools that I’m looking for would, for the most part,
 probably be found in the field known as **[Information Architecture][ia]** (IA).
 There are techniques associated with the IA field like **[card sorting]** and
 **[tree testing]** that could be useful tools in the software documentation
-toolbox to sit alongside Diátaxis. I’ve found the website of the **[Nielsen
-Norman Group][nng]** to be surprisingly useful in learning about some of these
-concepts. While NNG is your typical corporate consultancy trying to make a buck
-off of you, I’ve found their materials to be *much* more useful than the usual
-content-marketing drivel that you find on such sites. I’ve also bought a few IA
-books (including the aptly-named [*Information Architecture*][iabook]) and will
-see if any of them seem worth recommending to non-specialists.
+toolbox to sit alongside Diátaxis. I’ve found the website of an outfit called
+the [Nielsen Norman Group][nng] to be surprisingly useful in learning about some
+of these concepts. While NNG is your typical corporate consultancy trying to
+make a buck off of you, I’ve found their materials to be *much* more useful than
+the usual content-marketing drivel that you find on such sites. I’ve also bought
+a few IA books (including the aptly-named [*Information Architecture*][iabook])
+and will see if any of them seem worth recommending to non-specialists.
 
 [ia]: https://en.wikipedia.org/wiki/Information_architecture
 [card sorting]: https://en.wikipedia.org/wiki/Card_sorting
@@ -118,10 +118,10 @@ though, is that modern ones can pair with public services that allow you to host
 documentation online for free. **[ReadTheDocs]** is the standard for Python,
 **[docs.rs]** for Rust, and in a certain sense, **[CTAN]** for LaTeX are
 examples. If there’s one thing I’ve come to appreciate over the years, it’s that
-to first order no one wants to host their own content if they don’t have to, and
-in my experience services like these have been transformative for how scientific
-software is documented. That is, the universe of documentation tools to consider
-includes not just authoring tools, but also publishing platforms.
+to first order nobody wants to host their own content, and in my experience
+services like these have been transformative for how scientific software is
+documented. That is, the universe of documentation tools to consider includes
+not just authoring tools, but also publishing platforms.
 
 [ReadTheDocs]: https://readthedocs.io/
 [docs.rs]: https://docs.rs/
@@ -169,9 +169,6 @@ this box too.
 [MoinMoin]: https://moinmo.in/
 [Confluence]: https://www.atlassian.com/software/confluence
 
-*The work described in this post was supported by a [Better Scientific Software
-Fellowship](https://bssw.io/pages/bssw-fellowship-program)*.
-
 There are other platforms that, integrate authoring and publishing like wikis,
 but have modernized WYSIWYG styles. **[Curvenote]** (a commercial product) is
 specifically aimed at scientific authoring. **[PubPub]** is a unique open-source
@@ -213,3 +210,49 @@ a software project.
 [Gitter]: https://gitter.im/
 [Zulip]: https://zulip.com/
 [Slack]: https://slack.com/
+
+Finally, we can narrow our focus to the tools used to produce individual
+documents. In the context of our touchstone Sphinx, this takes us to the
+underlying markup options like **[reStructuredText]** and the hugely popular
+family of **[Markdown]** syntaxes ([less well-defined than you would
+hope][cmark]), especially the relatively new entrant **[MyST]** which emphasizes
+technical applications. My perennial favorite
+**[TeX/LaTeX](@/2024/what-tex-gets-right.md)** is relevant, but for the vast
+majority of users it only targets PDF output, and you’ll note that virtually
+everything that I’ve discussed revolves around HTML and the web browser. (To me,
+this is *the* fundamental issue holding TeX back in the 21st century.) You can
+think of the **[Jupyter notebook]** as a document file format (one that happens
+to come with a standard WYSIWYG editor), in which case **[nbconvert]** joins
+**[pandoc]** in the category of tools that connect the low-level document file
+formats to higher-level systems like Sphinx and mkdocs.
+
+[reStructuredText]: https://docutils.sourceforge.io/rst.html
+[MyST]: https://mystmd.org/
+[Markdown]: https://en.wikipedia.org/wiki/Markdown
+[cmark]: https://commonmark.org/
+[Jupyter notebook]: https://nbformat.readthedocs.io/
+[nbconvert]: https://nbconvert.readthedocs.io/
+[pandoc]: https://pandoc.org/
+
+Whew! I could keep going, too, but I *think* I’ve managed to touch on the major
+categories of tools that go into producing software documentation.
+
+Synthesizing all of the above, I think it might be not be unreasonable to talk
+about documentation as being produced within *documentation systems*. Here I’m
+referring only to the technical implementation, not conceptual tools like
+Diátaxis. I’ll claim that these technical systems include four kinds of
+technologies:
+
+1. Low-level file formats of individual documents
+2. Tools for authoring individual documents
+3. Tools for assembling documents into structured collections
+4. Tools for publishing (i.e., hosting) such collections
+
+Some tools blur the boundaries between these layers, and you could probably
+write a whole PhD thesis on the definition of the word “document”, but I’m going
+to claim that if you look at anything that you can call “documentation” with a
+straight face, you’ll be able to meaningfully isolate the technologies that are
+used for each of these four layers.
+
+*The work described in this post was supported by a [Better Scientific Software
+Fellowship](https://bssw.io/pages/bssw-fellowship-program)*.
