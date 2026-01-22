@@ -60,7 +60,7 @@ the emission matched Craig’s exotic plasma processes. Instead, it comes from a
 different surprising source! It seems to come from the same general kind of
 [synchrotron](https://en.wikipedia.org/wiki/Synchrotron_radiation#Synchrotron_radiation_in_astronomy)
 process that is likely responsible for TVLM 513’s
-[emission at centimeter radio wavelengths](http://labs.adsabs.harvard.edu/adsabs/abs/2002ApJ...572..503B/)
+[emission at centimeter radio wavelengths](https://scixplorer.org/abs/2002ApJ...572..503B/)
 (at least its non-bursting emission, but that’s a story for another time),
 just operating at much high energies. The physics of the synchrotron process
 tell us that emission at ALMA wavelengths must be coming from very energetic

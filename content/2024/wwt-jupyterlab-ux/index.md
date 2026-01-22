@@ -31,7 +31,7 @@ appear in the proceedings of [ADASS32].
 [tom]: https://www.trobitaille.dev/
 [pywwt]: https://pywwt.readthedocs.io/
 [widgets]: https://ipywidgets.readthedocs.io/
-[wcnw22]: https://ui.adsabs.harvard.edu/abs/2022arXiv221203907W
+[wcnw22]: https://scixplorer.org/abs/2022arXiv221203907W
 [wcnw22arxiv]: https://arxiv.org/abs/2212.03907
 [ADASS32]: https://www.adass2022.ca/
 

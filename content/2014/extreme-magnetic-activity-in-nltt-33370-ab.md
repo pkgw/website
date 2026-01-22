@@ -11,9 +11,9 @@ wp_shortlink = "/?p=905"
 The paper that I’ve been working on for much of this year is finally submitted
 to The Astrophysical Journal and
 [out on Arxiv](http://arxiv.org/abs/1409.4411)! It’s the fourth
-[in](http://adsabs.harvard.edu/abs/2008ApJ...673.1080B)
-[a](http://adsabs.harvard.edu/abs/2008ApJ...676.1307B)
-[series](http://adsabs.harvard.edu/abs/2010ApJ...709..332B) using simultaneous
+[in](https://scixplorer.org/abs/2008ApJ...673.1080B)
+[a](https://scixplorer.org/abs/2008ApJ...676.1307B)
+[series](https://scixplorer.org/abs/2010ApJ...709..332B) using simultaneous
 observations in multiple bands to better understand magnetic activity in the
 coolest stars and brown dwarfs. This particular paper targets a fascinating
 system called
@@ -22,9 +22,9 @@ system called
 it’s a little unfortunate that both names are nigh-unpronounceable).  
 
 NLTT 33370 came to our attention in 2011 when it was
-[detected as a very bright radio emitter](http://adsabs.harvard.edu/abs/2011ApJ...741...27M)
+[detected as a very bright radio emitter](https://scixplorer.org/abs/2011ApJ...741...27M)
 as part of
-[a larger radio survey](http://adsabs.harvard.edu/abs/2012ApJ...746...23M) of
+[a larger radio survey](https://scixplorer.org/abs/2012ApJ...746...23M) of
 the so-called “ultracool dwarfs”. In fact, it’s the brightest known radio
 emitter in this class. But it turns out that NLTT 33370 is doubly special
 because it is also a (relatively) short-period
@@ -35,7 +35,7 @@ astronomy and so systems like NLTT 33370 provide important benchmarks for
 checking theories of stellar formation and evolution.
 
 Even better, [Josh Schlieder](http://www.mpia-hd.mpg.de/homes/schlieder/) has
-[shown that this system is fairly young,](http://adsabs.harvard.edu/abs/2014ApJ...783...27S)
+[shown that this system is fairly young,](https://scixplorer.org/abs/2014ApJ...783...27S)
 with an age of about 100 million years, which is extra-unusual for a mass
 benchmark. This is important since you want to check that your stellar
 evolution theories work throughout a star’s lifetime, not just when it’s old
@@ -46,8 +46,8 @@ The bright radio emission of NLTT 33370 indicates that it’s an extremely
 magnetically active system, and high levels of magnetic activity are in turn
 expected to have a strong impact on the structure and evolution of low-mass
 stars (see, e.g.,
-[MacDonald & Mullan 2009](http://adsabs.harvard.edu/abs/2009ApJ...700..387M),
-[Stassun _et al_ 2012](http://adsabs.harvard.edu/abs/2012ApJ...756...47S)). If
+[MacDonald & Mullan 2009](https://scixplorer.org/abs/2009ApJ...700..387M),
+[Stassun _et al_ 2012](https://scixplorer.org/abs/2012ApJ...756...47S)). If
 you want to test those evolution theories correctly, then, you have to
 understand how the magnetic phenomena might be affecting things.
 

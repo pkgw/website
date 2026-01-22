@@ -124,7 +124,7 @@ the obscure
 [ADS Abstract Submission](http://adsabs.harvard.edu/adsfeedback/submit_abstract.html)
 form to submit a record and a copy of the paper text, resulting in the
 creation of ADS record
-[1997cfa..rept…..P](http://adsabs.harvard.edu/abs/1997cfa..rept.....P). This
+[1997cfa..rept…..P](https://scixplorer.org/abs/1997cfa..rept.....P). This
 achieves the most important thing to me: making it so that the preprint text
 is available online in a durable way. There’s also a subtle importance to the
 fact that the preprint is now integrated into the ADS citation system. Part of
@@ -137,7 +137,7 @@ even if you want to. (Side note: ADS is an _incredibly important service in
 the field_, and should get tons of money!)
 
 I did some searching (mostly in Google Scholar, I must admit) and found
-[12 citing papers](http://adsabs.harvard.edu/cgi-bin/nph-ref_query?bibcode=1997cfa..rept.....P&refs=CITATIONS&db_key=AST):
+[12 citing papers](https://scixplorer.org/abs/1997cfa..rept.....P/citations):
 pretty good for an unpublished preprint whose full text was virtually
 inaccessible until now. Those links have been added to ADS so that anyone
 reading one of the citing papers will easily be able to pull up the record and

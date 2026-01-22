@@ -7,7 +7,7 @@ It’s time for some science! This post will summarize a paper that I co-authore
 with a small team, [“A measurement of the wind speed on a brown dwarf”][avbw20].
 I’m quite proud of our work in this one!
 
-[avbw20]: https://ui.adsabs.harvard.edu/abs/2020Sci...368..169A
+[avbw20]: https://scixplorer.org/abs/2020Sci...368..169A
 
 Now, the right time to write about this paper would have been when it came out …
 back in 2020. [As I’ve alluded to][dormant], I ended up letting this website lie
@@ -94,7 +94,7 @@ for three consecutive ten-hour nights with the VLA, detecting around 19 pulses
 all told:
 
 {% relfig(path="avbw20fig3.jpg") %}
-Figure 3 from [Allers et al., 2020](https://ui.adsabs.harvard.edu/abs/2020Sci...368..169A),
+Figure 3 from [Allers et al., 2020](https://scixplorer.org/abs/2020Sci...368..169A),
 showing the radio pulse data.
 {% end %}
 
@@ -105,7 +105,7 @@ more in a separate post. Once we had our timeseries data, we needed to measure a
 period from the data. This took some exploration because, if you look at the
 figure above, the pulses are very inconsistent in strength and shape.
 
-[peeling]: https://ui.adsabs.harvard.edu/abs/2019RNAAS...3..110W
+[peeling]: https://scixplorer.org/abs/2019RNAAS...3..110W
 
 We ended up adopting a pulsar-style “time-of-arrival” (TOA) analysis, computing
 an arrival time for each pulse, and then computing a final period from that set
@@ -120,7 +120,7 @@ in the end, the fairest uncertainty quantification that we could come up with
 was basically a chi-by-eye:
 
 {% relfig(path="avbw20fig4.jpg") %}
-Figure 4 from [Allers et al., 2020](https://ui.adsabs.harvard.edu/abs/2020Sci...368..169A),
+Figure 4 from [Allers et al., 2020](https://scixplorer.org/abs/2020Sci...368..169A),
 showing candidate phasings of the radio pulse data.
 {% end %}
 

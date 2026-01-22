@@ -25,40 +25,40 @@ Chie below reference generic textbooks on random processes (e.g., “Theory of
 Stationary Random Functions,” A. M. Yaglom, Prentice-Hall, 1962).
 
 One of the original references, if not _the_ original reference, seems to be
-[Kolmogorov (1941)](http://adsabs.harvard.edu/abs/1941DoSSR..30..301K), in
+[Kolmogorov (1941)](https://scixplorer.org/abs/1941DoSSR..30..301K), in
 “Doklady Akademiia Nauk SSSR” **30** 301, which is translated and available
 online in
-[1991 RSPSA 434 9](http://adsabs.harvard.edu/abs/1991RSPSA.434....9K). (This
+[1991 RSPSA 434 9](https://scixplorer.org/abs/1991RSPSA.434....9K). (This
 is the Kolmogorov turbulence paper.) Unsurprisingly it isn’t very helpful
 pedagogically.
 
 The next step along one particular intellectual path is the apparent
 introduction of SFs into the engineering literature by
-[Lindsey and Chie (1976)](http://adsabs.harvard.edu/abs/1976IEEEP..64.1652L)
+[Lindsey and Chie (1976)](https://scixplorer.org/abs/1976IEEEP..64.1652L)
 [[DOI](http://dx.doi.org/10.1109/PROC.1976.10408)], with an overview in
 their Appendix I. A few years later
-[Rutman (1978)](http://adsabs.harvard.edu/abs/1978IEEEP..66.1048R)
+[Rutman (1978)](https://scixplorer.org/abs/1978IEEEP..66.1048R)
 [[DOI](http://dx.doi.org/10.1109/PROC.1978.11080)] also presented SFs in a
 very similar context (in that paper’s Section VIII). I haven’t digested the
 papers but Rutman is much more highly-cited than Lindsey and Chie.
-[Prokhorov et al (1975)](http://adsabs.harvard.edu/abs/1975IEEEP..63..790P)
+[Prokhorov et al (1975)](https://scixplorer.org/abs/1975IEEEP..63..790P)
 [[DOI](http://dx.doi.org/10.1109/PROC.1975.9828)] appear to have introduced
 SFs in the IEEE Proceedings first but don’t explain things as clearly.
 
 It looks like SFs were then brought to astronomy by
-[Rickett, Coles, & Bourgois (1984)](http://adsabs.harvard.edu/abs/1984A%26A...134..390R),
+[Rickett, Coles, & Bourgois (1984)](https://scixplorer.org/abs/1984A%26A...134..390R),
 though a close second are
-[Simonetti, Cordes, & Heeschen (1985)](http://adsabs.harvard.edu/abs/1985ApJ...296...46S).
+[Simonetti, Cordes, & Heeschen (1985)](https://scixplorer.org/abs/1985ApJ...296...46S).
 The latter reference Lindsey & Chie and Rutman and have an appendix that gives
 a nice rundown of some of the basic useful properties of SFs in the same style
 as those. Rickett et al have a less helpful explanation.
 
 After writing the first version of this bibliography, I found
-[Emmanoulopoulos et al (2010)](http://adsabs.harvard.edu/abs/2010MNRAS.404..931E),
+[Emmanoulopoulos et al (2010)](https://scixplorer.org/abs/2010MNRAS.404..931E),
 which gives a nice and thorough astronomical SF bibliography and also
 discusses caveats of SFs in astronomical usage. Another couple recent papers
 going into SF properties in various specialized astronomical circumstances are
-[Hughes, Aller, & Aller (1992)](http://adsabs.harvard.edu/abs/1992ApJ...396..469H)
+[Hughes, Aller, & Aller (1992)](https://scixplorer.org/abs/1992ApJ...396..469H)
 and
-[de Vries et al (2005)](http://adsabs.harvard.edu/abs/2005AJ....129..615D).
+[de Vries et al (2005)](https://scixplorer.org/abs/2005AJ....129..615D).
 There are many more relevant recent papers out there than just these, though.

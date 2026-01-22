@@ -17,14 +17,14 @@ realistic?
 Even though I keep on getting emails about X-ray observations of Cyg X-3 I
 shouldn’t lose sight of the fact that the key novelty for our Cyg X-3 work is
 the recent detection of it in gamma rays by AGILE and Fermi
-([Tavani+ 2009](http://adsabs.harvard.edu/abs/2009Natur.462..620T),
-[Fermi LAT Collaboration 2009](http://adsabs.harvard.edu/abs/2009Sci...326.1512F)).
+([Tavani+ 2009](https://scixplorer.org/abs/2009Natur.462..620T),
+[Fermi LAT Collaboration 2009](https://scixplorer.org/abs/2009Sci...326.1512F)).
 We’ll have near-continuous monitoring of X-3 from Fermi’s all-sky mapping
 activities, though I need to get a better handle on what that dataset will
 look like. I also need to think about what kind of radio/gamma variability
 correlations we might find. Geoff suggests that previous work on blazars
 should provide a good starting point — say, things building on
-[Maraschi+ 1992](http://adsabs.harvard.edu/abs/1992ApJ...397L...5M). For
+[Maraschi+ 1992](https://scixplorer.org/abs/1992ApJ...397L...5M). For
 instance, the Fermi team was only able to constrain the delay between
 radio/gamma emission peaks as 5 +- 7 days — can we do better?
 

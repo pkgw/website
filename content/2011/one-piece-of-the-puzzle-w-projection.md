@@ -9,7 +9,7 @@ wp_shortlink = "/?p=448"
 +++
 
 In my previous post I mentioned that
-[w-projection](http://adsabs.harvard.edu/abs/2005ASPC..347...86C) might help
+[w-projection](https://scixplorer.org/abs/2005ASPC..347...86C) might help
 the issues I was seeing with the sources on the very edges of my Cyg X-3
 image. I’ve gotten to the point where I can use CASA’s imager on some sample
 Cyg X-3 data, and indeed it makes a difference.

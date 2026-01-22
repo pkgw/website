@@ -12,7 +12,7 @@ wp_shortlink = "/?p=887"
 I recently found myself wanting to know the (approximate) bandpass of the
 [MEarth](http://www.cfa.harvard.edu/MEarth/) observatory. A plot of the
 bandpass is published in
-[Nutzman & Charbonneau (2008)](http://adsabs.harvard.edu/abs/2008PASP..120..317N),
+[Nutzman & Charbonneau (2008)](https://scixplorer.org/abs/2008PASP..120..317N),
 but I wasn’t able to find any tabulated data. Fortunately, the MEarth team
 works down the hallway from me, so I could find out if there were any better
 options. The short story is, not really.

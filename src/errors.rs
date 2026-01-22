@@ -34,6 +34,7 @@ impl AnnotatedReport {
         self.message = m;
     }
 
+    #[allow(dead_code)]
     pub fn add_note(&mut self, n: String) {
         self.notes.push(n);
     }

@@ -8,7 +8,7 @@ year that I’m really excited about: [Resolved imaging confirms a radiation bel
 around an ultracool dwarf][kmvs23], by [Melodie Kao][kao] and colleagues ([2023
 Nature 617(7969) 272–275][doi]).
 
-[kmvs23]: https://ui.adsabs.harvard.edu/abs/2023Natur.619..272K/abstract
+[kmvs23]: https://scixplorer.org/abs/2023Natur.619..272K/abstract
 [kao]: https://melodiekao.com/
 [doi]: https://doi.org/10.1038/s41586-023-06138-w
 
@@ -29,7 +29,7 @@ magnetically speaking, rather than scaled-down stars. (Best citation for that:
 [Williams 2018][w18].) It’s not the flashiest idea out there, for sure. But I
 think it’s a good, solid one that deserves to be more widely appreciated.
 
-[w18]: https://ui.adsabs.harvard.edu/abs/2018haex.bookE.171W/abstract
+[w18]: https://scixplorer.org/abs/2018haex.bookE.171W/abstract
 
 An important line of evidence for this idea is that radio observations of
 ultracool dwarfs show a lot of features that can be fruitfully interpret as
@@ -41,7 +41,7 @@ super neat paper by Bob Sault et al. ([1997 A&A 324 1190–1196][sodl97]) imaged
 Jupiter’s radio donut in 3D:
 
 [rb]: https://en.wikipedia.org/wiki/Van_Allen_radiation_belt
-[sodl97]: https://ui.adsabs.harvard.edu/abs/1997A%26A...324.1190S/abstract
+[sodl97]: https://scixplorer.org/abs/1997A%26A...324.1190S/abstract
 
 {% relfig(path="sodl97_fig3.jpg") %}
 Interferometric 3D reconstruction of Jupiter’s synchrotron radiation belt
@@ -67,7 +67,7 @@ there’s a NASA Heliophysics mission concept called [COMPASS] that envisions
 spending a billion-ish dollars to send a probe to understand them better. (I’m
 involved in its science definition team.)
 
-[COMPASS]: https://ui.adsabs.harvard.edu/abs/2023BAAS...55c.067C/abstract
+[COMPASS]: https://scixplorer.org/abs/2023BAAS...55c.067C/abstract
 
 Melodie is also an advocate for the idea that ultracool dwarfs have planet-like
 magnetospheres that should host radiation belts. If this idea’s actually
@@ -99,7 +99,7 @@ Presumably there’s a bit of a story there, but I’m not familiar with it. I k
 Melodie and her coauthors, and have talked with her about this work, so that’s
 where I’m focusing.)
 
-[cgpt+23]: https://ui.adsabs.harvard.edu/abs/2023Sci...381.1120C/abstract
+[cgpt+23]: https://scixplorer.org/abs/2023Sci...381.1120C/abstract
 [cgpt+23doi]: https://doi.org/10.1126/science.adg6635
 [cgpt+23arxiv]: https://arxiv.org/abs/2303.06453
 

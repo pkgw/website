@@ -161,7 +161,7 @@ early-2000’s [US NVO] experience isn’t exactly inconsistent with all this. I
 been harping on the NSF here for specificity, but any traditional grantmaker is
 going to face the same issues.
 
-[US NVO]: https://ui.adsabs.harvard.edu/abs/2001ASPC..238....3S/abstract
+[US NVO]: https://scixplorer.org/abs/2001ASPC..238....3S/abstract
 
 It’s true that projects that have *already* achieved a high level of
 significance can attract big grants: Jupyter landed [$6 million in 2015][jm];

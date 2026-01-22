@@ -35,6 +35,6 @@ technically function of the detection limit. I’m basically taking
 notebook #1, p. 73.)
 
 (Survey references are:
-[Hyman+ GMRT](http://adsabs.harvard.edu/abs/2009ApJ...696..280H),
-[Becker+ VLA](http://adsabs.harvard.edu/abs/2010AJ....140..157B),
-[Bower+ VLA](http://adsabs.harvard.edu/abs/2007ApJ...666..346B).)
+[Hyman+ GMRT](https://scixplorer.org/abs/2009ApJ...696..280H),
+[Becker+ VLA](https://scixplorer.org/abs/2010AJ....140..157B),
+[Bower+ VLA](https://scixplorer.org/abs/2007ApJ...666..346B).)

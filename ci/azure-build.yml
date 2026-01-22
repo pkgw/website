@@ -1,6 +1,6 @@
 parameters:
 - name: zolaVersion
-  default: '0.18.0'
+  default: '0.22.0'
   type: string
 
 jobs:

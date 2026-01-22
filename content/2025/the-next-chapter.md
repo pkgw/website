@@ -51,7 +51,7 @@ want to accomplish depends on coaxing results out of a team of software
 developers that you probably didn’t even notice hiring. For many scientists this
 is a very distressing realization!
 
-[m80]: https://ui.adsabs.harvard.edu/abs/1980CeMec..22...63M
+[m80]: https://scixplorer.org/abs/1980CeMec..22...63M
 
 My perspective is: capital-S Science doesn’t care whether you have any interest
 in managing a team of software engineers or not. If you want lead even a

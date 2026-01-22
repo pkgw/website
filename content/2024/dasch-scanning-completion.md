@@ -92,11 +92,11 @@ scanner, but the people and processes surrounding it — I’ll note that we cou
 probably digitize all of POSS-I in a couple of good weeks.
 
 [POSS-I]: https://skyserver.sdss.org/dr5/en/proj/advanced/skysurveys/poss.asp
-[1]: https://ui.adsabs.harvard.edu/abs/1980Msngr..22....7S
+[1]: https://scixplorer.org/abs/1980Msngr..22....7S
 [SERC]: https://en.wikipedia.org/wiki/Science_and_Engineering_Research_Council
 [AAO]: https://aat.anu.edu.au/about-us/AAT
-[AAO-SES]: https://ui.adsabs.harvard.edu/abs/1989BICDS..37...13L
-[2]: https://ui.adsabs.harvard.edu/abs/1990AJ.....99.2019L
+[AAO-SES]: https://scixplorer.org/abs/1989BICDS..37...13L
+[2]: https://scixplorer.org/abs/1990AJ.....99.2019L
 [3]: https://archive.stsci.edu/missions-and-data/dss--gsc
 [WorldWide Telescope]: https://worldwidetelescope.org/home/
 
