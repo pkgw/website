@@ -22,12 +22,6 @@ pub struct BareRepositoryError;
 #[derive(Debug, ThisError)]
 pub struct DirtyRepositoryError(pub RepoPathBuf);
 
-/// An error returned when some metadata references a commit in the repository,
-/// and that reference is bogus. The inner value is the text of the reference.
-#[derive(Debug, ThisError)]
-#[error("commit reference `{0}` is invalid or refers to a nonexistent commit")]
-pub struct InvalidHistoryReferenceError(pub String);
-
 impl std::fmt::Display for DirtyRepositoryError {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(
@@ -142,11 +136,11 @@ impl Repository {
         Ok(None)
     }
 
-    pub fn entry_to_object(&self, entry: &git2::TreeEntry<'_>) -> Result<git2::Object> {
+    pub fn entry_to_object(&self, entry: &git2::TreeEntry<'_>) -> Result<git2::Object<'_>> {
         Ok(entry.to_object(&self.repo)?)
     }
 
-    fn get_signature(&self) -> Result<git2::Signature> {
+    fn get_signature(&self) -> Result<git2::Signature<'_>> {
         Ok(git2::Signature::now("deploytool", "deploytool@devnull")?)
     }
 

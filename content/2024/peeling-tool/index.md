@@ -12,7 +12,7 @@ developed. This post will describe the associated workflow in a bit more detail
 than could fit in the length-constrained Research Note ([Williams et al.,
 2019][publication]) that presented the tool.
 
-[publication]: https://ui.adsabs.harvard.edu/abs/2019RNAAS...3..110W
+[publication]: https://scixplorer.org/abs/2019RNAAS...3..110W
 
 <!-- more -->
 
@@ -33,7 +33,7 @@ sophisticated calibration to reach for 10000:1 or even better, because 1% of a
 big number might be enough to cause problems for your science.
 
 [VLA]: https://public.nrao.edu/telescopes/vla/
-[Braun 2013]: https://ui.adsabs.harvard.edu/abs/2013A%26A...551A..91B/abstract
+[Braun 2013]: https://scixplorer.org/abs/2013A%26A...551A..91B/abstract
 
 Standard interferometric calibration techniques are “direction-independent”:
 they compute various parameters that are, in a certain sense, based on the total
@@ -65,7 +65,7 @@ linear, and our calibrations are invertible, and that we can model our source
 (hopefully all pretty good assumptions), this will get rid of the source and
 allow us to proceed with standard DI analysis as if it was never even there.
 
-[Noordam 2004]: https://ui.adsabs.harvard.edu/abs/2004SPIE.5489..817N/abstract
+[Noordam 2004]: https://scixplorer.org/abs/2004SPIE.5489..817N/abstract
 
 For the [Allers+ 2020](@/2023/brown-dwarf-windspeeds/index.md) windspeeds paper,
 this was what I wanted to do. But as far as I was able to tell (and to my

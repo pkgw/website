@@ -103,9 +103,9 @@ broadband.
 # References
 
 - Great conceptual paper: Narayan 92:
-  [ADS](http://adsabs.harvard.edu/abs/1992RSPTA.341..151N),
+  [ADS](https://scixplorer.org/abs/1992RSPTA.341..151N),
   [journal](http://rsta.royalsocietypublishing.org/content/341/1660/151.abstract)
 - [Wikipedia Fresnel Diffraction](http://en.wikipedia.org/wiki/Fresnel_diffraction)
 - Linking ISS and IDV: Dennett-Thorpe & de Bruyn 02:
-  [ADS](http://adsabs.harvard.edu/abs/2002Natur.415...57D),
+  [ADS](https://scixplorer.org/abs/2002Natur.415...57D),
   [Journal](http://www.nature.com/nature/journal/v415/n6867/full/415057a.html)

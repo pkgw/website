@@ -22,7 +22,7 @@ sections of different count rates; or, you can think of them as providing
 dynamic binning for histogram analysis. J. Scargle has been the main person
 developing the theory, and has put together a very nice detailed paper
 explaining the approach in
-[2013 ApJ 764 167](http://adsabs.harvard.edu/abs/2013ApJ...764..167S). The
+[2013 ApJ 764 167](https://scixplorer.org/abs/2013ApJ...764..167S). The
 paper’s written in a Reproducible Research style, coming with code to
 reproduce all the figures — which is really awesome, but something to talk
 about another day.

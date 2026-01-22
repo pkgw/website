@@ -12,7 +12,7 @@ Long time, no blog! I’ve been busy with a bunch of things this summer. These
 have mostly _not_ been my latest paper
 ([DOI](http://dx.doi.org/10.1088/0004-637X/808/2/189),
 [arxiv](http://arxiv.org/abs/1502.06610),
-[ADS](http://labs.adsabs.harvard.edu/adsabs/abs/2015ApJ...808..189W/)), which
+[ADS](https://scixplorer.org/abs/2015ApJ...808..189W/)), which
 was submitted in February, but it’s finally out in
 [ApJ](http://iopscience.iop.org/0004-637X/) so it feels like a good time to
 finally write about it.
@@ -21,10 +21,10 @@ The full title is _“The Rotation Period and Magnetic Field of the T Dwarf
 [2MASSI J1047539+212423](http://simbad.u-strasbg.fr/simbad/sim-id?protocol=html&Ident=2MASSI%20J1047539%2B212423)
 Measured From Periodic Radio Bursts”_ and that pretty much sums it up. The
 work builds on
-[an earlier paper](http://labs.adsabs.harvard.edu/adsabs/abs/2013ApJ...767L..30W/)
+[an earlier paper](https://scixplorer.org/abs/2013ApJ...767L..30W/)
 describing VLA follow-up of this awesome, cold brown dwarf, a.k.a. 2M 1047+21,
 which was discovered to have radio emission by
-[Route & Wolszczan in 2012](http://labs.adsabs.harvard.edu/adsabs/abs/2012ApJ...747L..22R/).
+[Route & Wolszczan in 2012](https://scixplorer.org/abs/2012ApJ...747L..22R/).
 The main thing about this radio-emitting brown dwarf is that it’s _much_
 colder than the other published radio emitters; its effective temperature is
 just 900 K, while

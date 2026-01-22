@@ -6,8 +6,9 @@ generate_feeds = true
 feed_filenames = ["rss.xml"]
 build_search_index = false
 
-[markdown]
-highlight_code = true
+[markdown.highlighting]
+light_theme = "github-light"
+dark_theme = "github-dark"
 
 [extra]
 github_base = "https://github.com/pkgw/website"

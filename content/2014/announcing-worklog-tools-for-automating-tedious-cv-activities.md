@@ -94,7 +94,7 @@ features that could be added.
 
 **By the way #4:** A lot of this work was probably motivated by the fact that
 my name isn’t very ADS-able — a search for
-[P Williams](http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?return_req=no_params&author=Williams,%20P&db_key=AST)
+[P Williams](https://scixplorer.org/search?p=1&q=author%3A%22P+Williams%22&sort=score+desc&sort=date+desc&d=astrophysics)
 pulls in way too many hits, and though I can’t get a search for exactly
-[PKG Williams](http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?return_req=no_params&author=Williams,%20P%20K%20G&db_key=AST)
+[PKG Williams](https://scixplorer.org/search?d=astrophysics&p=1&q=author%3A%22P+K+G+Williams%22&sort=score+desc&sort=date+desc)
 to work, I have a fair number of publications without the middle initials.

@@ -58,7 +58,7 @@ stars_
 - _Objects of unknown nature that have been discovered in radio
   transient/variable surveys or serendipitously_ (there are suggestions that
   at least some of these are galactic:
-  [Becker+ 2010](http://adsabs.harvard.edu/abs/2010AJ....140..157B), though
+  [Becker+ 2010](https://scixplorer.org/abs/2010AJ....140..157B), though
   they don’t consider scintillation; the Burper; Galactic Center transients; etc.)
 
 I think that list speaks for itself. Now, even if there are many interesting
@@ -76,35 +76,35 @@ ATA is supposed to be a unique instrument for performing surveys of this kind.
 The more detailed answer depends upon consideration of the competition:
 
 - Hyman+ VLA/GMRT GC 330 MHz:
-  [2002](http://adsabs.harvard.edu/abs/2002AJ....123.1497H),
-  [2003](http://adsabs.harvard.edu/abs/2003ANS...324...79H),
-  [2005 (Burper)](http://adsabs.harvard.edu/abs/2005Natur.434...50H),
-  [2009](http://adsabs.harvard.edu/abs/2009ApJ...696..280H)
+  [2002](https://scixplorer.org/abs/2002AJ....123.1497H),
+  [2003](https://scixplorer.org/abs/2003ANS...324...79H),
+  [2005 (Burper)](https://scixplorer.org/abs/2005Natur.434...50H),
+  [2009](https://scixplorer.org/abs/2009ApJ...696..280H)
 - Becker+ GP VLA archival:
-  [2010](http://adsabs.harvard.edu/abs/2010AJ....140..157B)
+  [2010](https://scixplorer.org/abs/2010AJ....140..157B)
 - Langston+ NRAO Galactic Plane A survey:
-  [2000](http://adsabs.harvard.edu/abs/2000AJ....119.2801L),
+  [2000](https://scixplorer.org/abs/2000AJ....119.2801L),
   [website](http://www.gb.nrao.edu/~glangsto/gpa/)
 - Bower+ VLA archival:
-  [2007](http://adsabs.harvard.edu/abs/2007ApJ...666..346B)
+  [2007](https://scixplorer.org/abs/2007ApJ...666..346B)
 - Carilli, Ivison, Frail Lockman Hole search:
-  [2003](http://adsabs.harvard.edu/abs/2003ApJ...590..192C)
+  [2003](https://scixplorer.org/abs/2003ApJ...590..192C)
 - Levison+ FIRST/NVSS comparison:
-  [2002](http://adsabs.harvard.edu/abs/2002ApJ...576..923L),
-  [2006](http://adsabs.harvard.edu/abs/2006ApJ...639..331G)
+  [2002](https://scixplorer.org/abs/2002ApJ...576..923L),
+  [2006](https://scixplorer.org/abs/2006ApJ...639..331G)
 - Frail+ GRBA search:
-  [2003](http://adsabs.harvard.edu/abs/2003AJ....125.2299F)
+  [2003](https://scixplorer.org/abs/2003AJ....125.2299F)
 - Kida+ drift scans:
-  [2008](http://adsabs.harvard.edu/abs/2008NewA...13..519K), among others
+  [2008](https://scixplorer.org/abs/2008NewA...13..519K), among others
 - Gregory & Taylor drift scans:
-  [1981](http://adsabs.harvard.edu/abs/1981ApJ...248..596G),
-  [1986](http://adsabs.harvard.edu/abs/1986AJ.....92..371G)
+  [1981](https://scixplorer.org/abs/1981ApJ...248..596G),
+  [1986](https://scixplorer.org/abs/1986AJ.....92..371G)
 - McLaughlin+ Parkes multibeam piggyback:
-  [2006](http://adsabs.harvard.edu/abs/2006Natur.439..817M),
-  [2010](http://adsabs.harvard.edu/abs/2010MNRAS.401.1057K)a,
-  [2010b](http://adsabs.harvard.edu/abs/2010MNRAS.402..855B)
+  [2006](https://scixplorer.org/abs/2006Natur.439..817M),
+  [2010](https://scixplorer.org/abs/2010MNRAS.401.1057K)a,
+  [2010b](https://scixplorer.org/abs/2010MNRAS.402..855B)
 - Cordes Arecibo pulsar survey:
-  [2006](http://adsabs.harvard.edu/abs/2006ApJ...637..446C)
+  [2006](https://scixplorer.org/abs/2006ApJ...637..446C)
 
 The last two are concerned with fast transients, which is a pretty different
 region of parameter space than what I’m interested in. All of the others
@@ -119,9 +119,9 @@ aspect needing a bit more investigation.
 
 Are microquasars interesting? Definitely — they should be able to teach us a
 lot about full- size quasars. (See eg
-[Mirabel & Rodriguez 1998](http://adsabs.harvard.edu/abs/1998Natur.392..673M)
+[Mirabel & Rodriguez 1998](https://scixplorer.org/abs/1998Natur.392..673M)
 for a short version of the case and
-[Mirabel & Rodriguez 1999](http://adsabs.harvard.edu/abs/1999ARA%26A..37..409M)
+[Mirabel & Rodriguez 1999](https://scixplorer.org/abs/1999ARA%26A..37..409M)
 for a review article that also goes into justifications.) Fundamentally, while
 many of the physics seem to be analogous, the timescales are much, much
 shorter and the spatial resolution is much, much better. And there’s
@@ -133,12 +133,12 @@ empirically, yes, because people are doing it.
 
 - Cyg X-3 is being monitored with the OVRO 40m by Fermi LAT Collaboration
   members (mentioned in
-  [FLC 2009](http://adsabs.harvard.edu/abs/2009Sci...326.1512F), no direct ref
+  [FLC 2009](https://scixplorer.org/abs/2009Sci...326.1512F), no direct ref
   I can find)
 - Ditto for with AMI (e.g.
-  [Pooley 2006](http://adsabs.harvard.edu/abs/2006smqw.confE..19P))
+  [Pooley 2006](https://scixplorer.org/abs/2006smqw.confE..19P))
 - And the RATAN-600 (mentioned in
-  [Tavani+ 2009](http://adsabs.harvard.edu/abs/2009Natur.462..620T),
+  [Tavani+ 2009](https://scixplorer.org/abs/2009Natur.462..620T),
   no direct ref)
 
 How is our project different than these? The OVRO monitoring seems to generate
@@ -150,11 +150,11 @@ with X-ray and observations.
 
 Will this different approach yield novel results? This also starts getting a
 bit tricky to address, and starts getting into the “feasibility” domain.
-[Szostek and Zdziarski 2007](http://adsabs.harvard.edu/abs/2007MNRAS.375..793S)
+[Szostek and Zdziarski 2007](https://scixplorer.org/abs/2007MNRAS.375..793S)
 argue that there won’t be orbital modulation of Cyg X-3’s emission, but not
 because of scattering effects, so shorter-timescale variability would still be
 possible due to _e.g._ jet variability.
-[Hjalmarsdotter+ 2004](http://adsabs.harvard.edu/abs/2004RMxAC..20..216H)
+[Hjalmarsdotter+ 2004](https://scixplorer.org/abs/2004RMxAC..20..216H)
 says that periods between 0.01 and 1000 days were searched for in a Ryle
 telescope run around 2002 Dec 22-23 and that none were found, with no word on
 what the variability may have looked like. (Given the lower limit to their

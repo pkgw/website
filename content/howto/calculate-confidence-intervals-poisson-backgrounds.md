@@ -21,7 +21,7 @@ number of source counts?
 Of course, the formalism for this has been worked out for a while.
 [Kraft, Burrows, and Nousek (1991)](http://dx.doi.org/10.1086/170124) describe
 the fairly canonical
-([222 citations](http://labs.adsabs.harvard.edu/adsabs/abs/1991ApJ...374..344K/))
+([222 citations](https://scixplorer.org/abs/1991ApJ...374..344K/))
 approach. Their paper gives a lot of tables for representative values, but the
 formalism isn’t that complicated, so I thought I’d go ahead and implement it
 so that I can get values for arbitrary inputs.

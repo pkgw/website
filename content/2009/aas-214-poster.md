@@ -12,7 +12,7 @@ wp_shortlink = "/?p=141"
 another poster at the [214th AAS meeting](http://aas.org/meetings/aas214/) in
 Pasadena. The topic this time was the launch of the AGCTS project. The
 abstract for the poster isn’t on ADS quite yet, but I think it should show up
-[here](http://adsabs.harvard.edu/abs/2009AAS...21460103W). Its session
+[here](https://scixplorer.org/abs/2009AAS...21460103W). Its session
 identifier was #601.03.
 
 Here’s a
