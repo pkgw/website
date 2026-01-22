@@ -10,7 +10,7 @@ wp_shortlink = "/?p=106"
 
 I gave a poster at the [213th AAS meeting](http://aas.org/meetings/aas213/)
 about my broadband spectra project. The poster abstract is now
-[listed on ADS.](http://adsabs.harvard.edu/abs/2009AAS...21347005W)
+[listed on ADS.](https://scixplorer.org/abs/2009AAS...21347005W)
 
 Here’s
 {{ulink(path="wp/wp-content/uploads/2009/02/poster.pdf", text="a PDF of the poster")}}

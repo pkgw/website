@@ -162,7 +162,7 @@ individually — as well as 515 articles in the [Harvard College Observatory
 Circular][harci]. I’ve found that these publication series provide invaluable
 contextual information to help understand the Harvard plate collection.
 
-[iap]: https://ui.adsabs.harvard.edu/abs/1895AnHar..32....1P/abstract
+[iap]: https://scixplorer.org/abs/1895AnHar..32....1P/abstract
 [anhar]: https://ui.adsabs.harvard.edu/search/q=bibstem%3Aanhar&sort=date%20desc%2C%20bibcode%20desc&p_=0
 [ADS]: https://ui.adsabs.harvard.edu/
 [harci]: https://ui.adsabs.harvard.edu/search/q=bibstem%3Aharci&sort=date%20desc%2C%20bibcode%20desc&p_=0
@@ -178,7 +178,7 @@ large, variable spot *a*, Plate VII., Fig. 7, is just beginning to appear. *b*
 is still more faintly outlined. This photograph was taken at Cambridge, 1888
 September 13d 16h 02m G. M. T. Age of the Moon 8d.0.”
 
-[iap]: https://ui.adsabs.harvard.edu/abs/1895AnHar..32....1P/abstract
+[iap]: https://scixplorer.org/abs/1895AnHar..32....1P/abstract
 {% end %}
 
 Various cross-checks convince me that this description refers to plate [X00981]

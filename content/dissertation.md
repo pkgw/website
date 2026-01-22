@@ -21,26 +21,26 @@ Here’s the outline:
 - **Chapter 1: Introduction** — unpublished elsewhere
 - **Chapter 2: Rapid Interferometric Software Development Using MIRIAD and
   Python** — previously published as
-  [2012 PASP 124 624](http://adsabs.harvard.edu/abs/2012PASP..124..624W)
+  [2012 PASP 124 624](https://scixplorer.org/abs/2012PASP..124..624W)
   (arxiv:[1203.0330](http://arxiv.org/abs/1203.0330),
   DOI:[10.1086/666604](http://dx.doi.org/10.1086/666604))
 - **Chapter 3: The ATA Commensal Observing System** — also available as
-  [ATA Memo #89](http://adsabs.harvard.edu/abs/2012arXiv1201.5413W)
+  [ATA Memo #89](https://scixplorer.org/abs/2012arXiv1201.5413W)
   (arxiv:[1201.5413](http://arxiv.org/abs/1201.5413),
   [PDF](https://www.seti.org/sites/default/files/ATA-memo-series/memo89.pdf))
 - **Chapter 4: Evaluating the Calorimeter Model with Broadband, Continuous
   Spectra of Starburst Galaxies** — previously published as
-  [2010 ApJ 710 1462](http://adsabs.harvard.edu/abs/2010ApJ...710.1462W)
+  [2010 ApJ 710 1462](https://scixplorer.org/abs/2010ApJ...710.1462W)
   (arxiv:[0912.0014](http://arxiv.org/abs/0912.0014),
   DOI:[10.1088/0004-637X/710/2/1462](http://dx.doi.org/10.1088/0004-637X/710/2/1462))
 - **Chapter 5: ASGARD, A Large Survey for Slow Galactic Radio Transients:
   Overview and First Results** — subsequently published as
-  [2013 ApJ 762 85](http://adsabs.harvard.edu/abs/2013ApJ...762...85W)
+  [2013 ApJ 762 85](https://scixplorer.org/abs/2013ApJ...762...85W)
   (arxiv:[1211.1042](http://arxiv.org/abs/1211.1042),
   DOI:[10.1088/0004-637X/762/2/85](http://dx.doi.org/10.1088/0004-637X/762/2/85))
 - **Chapter 6: The 2010 May Flaring Episode of Cygnus X-3 in Radio, X-Rays,
   and γ-Rays** — previously published as
-  [2011 ApJL 733 L20](http://adsabs.harvard.edu/abs/2011ApJ...733L..20W)
+  [2011 ApJL 733 L20](https://scixplorer.org/abs/2011ApJ...733L..20W)
   (arxiv:[1104.5248](http://arxiv.org/abs/1104.5248),
   DOI:[10.1088/2041-8205/733/2/L20](http://dx.doi.org/10.1088/2041-8205/733/2/L20))
 - **Chapter 7: Conclusion** — unpublished elsewhere

@@ -26,7 +26,7 @@ CASA imager with various options.
 
 The _top-left_ panel shows the imaging residuals using traditional
 grid-and-FFT and 200 iterations of
-[Högbom (1974) clean](http://adsabs.harvard.edu/abs/1974A%26AS...15..417H).
+[Högbom (1974) clean](https://scixplorer.org/abs/1974A%26AS...15..417H).
 The S/N is just 1001 — for ideal data with no noise!
 
 The _top-right_ panel turns on the

@@ -37,7 +37,7 @@ portal where you would go to get “the data”, for any astronomical data in th
 world.
 
 [2]: https://www.ivoa.net/about/what-is-vo.html
-[3]: https://ui.adsabs.harvard.edu/abs/2001ASPC..225..353./abstract
+[3]: https://scixplorer.org/abs/2001ASPC..225..353./abstract
 
 That hasn’t quite happened, but we do have an ecosystem of services and tools
 that use VO standards for data discovery, and DASCH has not been plugged into

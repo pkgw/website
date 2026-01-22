@@ -47,17 +47,17 @@ the way in which they’re measured:
   changes in S of order 50%.) 1274 sources total -> ~3% variable fraction.
   Estimate >90% are XG. Some comparisons to early 80’s work that I’m going to
   ignore.
-- **[Carilli+ 03](http://adsabs.harvard.edu/abs/2003ApJ...590..192C).** 19d
+- **[Carilli+ 03](https://scixplorer.org/abs/2003ApJ...590..192C).** 19d
   and 17m timescales probed at 1.4 GHz. Find rate < 18 / sqdeg for S > 100
   uJy.
-- [**Frail+ 03**](http://adsabs.harvard.edu/abs/2003astro.ph..9557F). Find
+- [**Frail+ 03**](https://scixplorer.org/abs/2003astro.ph..9557F). Find
   four variables, no transients in GRB afterglow searches. Find R\_variable <
   6 / sqdeg.
 - **Niinuma+ 07, Kuniyoshi+ 07, Matsumura+ 07** (see Bower+ 08 for refs).
   Bright transients in drift scans; three >1 Jy lasting < 1d, one > 3Jy
   lasting ~3d; not widely believed.
-- **[Levinson+ 02](http://adsabs.harvard.edu/abs/2002ApJ...576..923L),
-  [Gal-Yam+ 06](http://adsabs.harvard.edu/abs/2006ApJ...639..331G)**.
+- **[Levinson+ 02](https://scixplorer.org/abs/2002ApJ...576..923L),
+  [Gal-Yam+ 06](https://scixplorer.org/abs/2006ApJ...639..331G)**.
   FIRST/NVSS comparisons. 2400 sqdeg at S > 6 mJy and 1.4 GHz. Limit that
   there are < 65 RTs in entire sky above 6 mJy at once (95% CL). Limit
   volumetric rate < 1000 / Gpc^3 / yr. (Typo in abstract: Gpc^1 not Gpc^-3.)

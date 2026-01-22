@@ -43,8 +43,8 @@ software in the same index, then you have a nice uniform way to cite software.
 [pwkit]: https://github.com/pkgw/pwkit/
 [ascl:1704.001]: https://ascl.net/1704.001
 [ADS]: https://ui.adsabs.harvard.edu/
-[2017ascl.soft04001W]: https://ui.adsabs.harvard.edu/abs/2017ascl.soft04001W
-[pwkitbt]: https://ui.adsabs.harvard.edu/abs/2017ascl.soft04001W/exportcitation
+[2017ascl.soft04001W]: https://scixplorer.org/abs/2017ascl.soft04001W
+[pwkitbt]: https://scixplorer.org/abs/2017ascl.soft04001W/exportcitation
 
 My blunt assessment, however, is that this approach is **fundamentally broken**.
 The fundamental issue is that there is only one entity that gets to determine
@@ -82,7 +82,7 @@ informally, when it comes time to make a formal citation, they “resolve” tha
 bibcode to the *actual* citation, [Eftekhari et al., 2022 ApJ 935 16][eftekdoi].
 ADS indexes citeable items but is not construed as making them citeable itself.
 
-[2022ApJ...935...16E]: https://ui.adsabs.harvard.edu/abs/2022ApJ...935...16E
+[2022ApJ...935...16E]: https://scixplorer.org/abs/2022ApJ...935...16E
 [eftekdoi]: https://doi.org/10.3847/1538-4357/ac7ce8
 
 That may be so, but it doesn’t make it any cheaper to maintain ADS’s index. ADS

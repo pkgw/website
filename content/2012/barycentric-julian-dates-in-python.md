@@ -77,17 +77,17 @@ These are basically copied from the resources linked above; I haven’t read
 them myself. Standing on the shoulders of giants and all that.
 
 - Eastman J, Siverd R, Gaudi BS.
-  [2010 PASP 122 935](http://adsabs.harvard.edu/abs/2010PASP..122..935E).
+  [2010 PASP 122 935](https://scixplorer.org/abs/2010PASP..122..935E).
 - Fairhead L, Bretagnon P.
-  [1990 A&A 229 240](http://adsabs.harvard.edu/abs/1990A&A...229..240F)
+  [1990 A&A 229 240](https://scixplorer.org/abs/1990A&A...229..240F)
 - Fairhead L, Bretagnon P, Lestrade J-F.
-  [1988AUS..128..419F](http://adsabs.harvard.edu/abs/1988IAUS..128..419F).
+  [1988AUS..128..419F](https://scixplorer.org/abs/1988IAUS..128..419F).
 - Fukushima T.
-  [1995 A&A 294 895](http://adsabs.harvard.edu/abs/1995A&A...294..895F).
+  [1995 A&A 294 895](https://scixplorer.org/abs/1995A&A...294..895F).
 - Irwin AW, Fukushima T.
-  [1999 A&A 348 642](http://adsabs.harvard.edu/abs/1999A&A...348..642I).
+  [1999 A&A 348 642](https://scixplorer.org/abs/1999A&A...348..642I).
 - Petit G, Luzum B, eds. IERS Conventions (2010),
   [IERS Technical Note #36](http://www.iers.org/nn_11216/IERS/EN/Publications/TechnicalNotes/tn36.html).
 - Standish, E.
-  [1998 A&A 336 381](http://adsabs.harvard.edu/abs/1998A&A...336..381S).
+  [1998 A&A 336 381](https://scixplorer.org/abs/1998A&A...336..381S).
 - [_Tempo_ pulsar timing software](http://tempo.sourceforge.net/).
