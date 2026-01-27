@@ -92,3 +92,6 @@ Over the last few months of my fellowship I’ll be polishing the website and
 working to get the word out. I’m quite proud of how this project has come
 together so far and I hope you find it useful! Check out the One Good Tutorial
 materials at [onegoodtutorial.org][ogt].
+
+*The work described in this post was supported by a [Better Scientific Software
+Fellowship](https://bssw.io/pages/bssw-fellowship-program)*.
